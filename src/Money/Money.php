@@ -13,8 +13,8 @@ use Macmotp\Traits\MoneyPrinter;
 /**
  * Class Money
  */
-class Money {
-
+class Money
+{
     use MoneyAggregator;
     use MoneyCalculator;
     use MoneyComparator;

@@ -2,7 +2,6 @@
 
 namespace Macmotp\Traits;
 
-use Illuminate\Support\Collection;
 use Macmotp\Exceptions\MoneyDivisionByZero;
 use Macmotp\Exceptions\MoneyOperationWithDifferentCurrencies;
 use Macmotp\Money;
@@ -25,7 +24,7 @@ trait MoneyCalculator
      */
     public function add(Money $money): Money
     {
-        if (!$this->isSameCurrency($money)) {
+        if (! $this->isSameCurrency($money)) {
             throw new MoneyOperationWithDifferentCurrencies();
         }
 
@@ -48,7 +47,7 @@ trait MoneyCalculator
      */
     public function subtract(Money $money): Money
     {
-        if (!$this->isSameCurrency($money)) {
+        if (! $this->isSameCurrency($money)) {
             throw new MoneyOperationWithDifferentCurrencies();
         }
 

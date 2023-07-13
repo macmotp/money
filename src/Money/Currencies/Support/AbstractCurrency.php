@@ -11,7 +11,8 @@ abstract class AbstractCurrency
      * @param Format $format
      */
     public function __construct(protected Format $format)
-    {}
+    {
+    }
 
     /**
      * Get the Currency Formatting Rules

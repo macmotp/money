@@ -2,8 +2,6 @@
 
 namespace Macmotp\Money\Tests\Unit\Traits;
 
-use Macmotp\Currencies\EUR;
-use Macmotp\Currencies\Support\Format;
 use Macmotp\Currency;
 use Macmotp\Money;
 use PHPUnit\Framework\TestCase;

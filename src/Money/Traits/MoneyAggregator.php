@@ -97,7 +97,7 @@ trait MoneyAggregator
         $currencyCode = $collection->first()->getCurrency()->getFormat()->getCode();
 
         return new Money(
-            $collection->filter(fn(Money $m) => ($m->getCurrency()->getFormat()->getCode() === $currencyCode))->{$aggregation}(fn(Money $m) => $m->getAmount()),
+            $collection->filter(fn (Money $m) => ($m->getCurrency()->getFormat()->getCode() === $currencyCode))->{$aggregation}(fn (Money $m) => $m->getAmount()),
             $currencyCode
         );
     }
