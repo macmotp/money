@@ -2,9 +2,6 @@
 
 namespace Macmotp\Traits;
 
-use Illuminate\Support\Collection;
-use JetBrains\PhpStorm\Pure;
-use Macmotp\Currencies\Support\Format;
 use Macmotp\Money;
 
 trait MoneyPrinter
@@ -217,7 +214,7 @@ trait MoneyPrinter
         );
 
         // Check if we need to print the currency
-        if (!$currencyFormat->getShowSymbol() && !$currencyFormat->getShowCode()) {
+        if (! $currencyFormat->getShowSymbol() && ! $currencyFormat->getShowCode()) {
             return $amount;
         }
 

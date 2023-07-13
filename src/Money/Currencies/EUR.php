@@ -2,9 +2,9 @@
 
 namespace Macmotp\Currencies;
 
+use Macmotp\Currencies\Support\AbstractCurrency;
 use Macmotp\Currencies\Support\Format;
 use Macmotp\Currency;
-use Macmotp\Currencies\Support\AbstractCurrency;
 
 class EUR extends AbstractCurrency implements Currency
 {
