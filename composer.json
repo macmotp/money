@@ -1,7 +1,7 @@
 {
     "name": "macmotp/money",
     "version": "v0.1.0",
-    "description": "PHP Library to handle Money",
+    "description": "Light PHP Library to handle Money",
     "keywords": [
         "macmotp",
         "money",
@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2",
         "illuminate/collections": "^v8.83.27"
     },
     "require-dev": {

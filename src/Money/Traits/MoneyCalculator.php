@@ -4,6 +4,7 @@ namespace Macmotp\Traits;
 
 use Illuminate\Support\Collection;
 use Macmotp\Exceptions\MoneyDivisionByZero;
+use Macmotp\Exceptions\MoneyOperationWithDifferentCurrencies;
 use Macmotp\Money;
 
 trait MoneyCalculator
@@ -20,9 +21,14 @@ trait MoneyCalculator
      * @param Money $money
      *
      * @return Money
+     * @throws MoneyOperationWithDifferentCurrencies
      */
     public function add(Money $money): Money
     {
+        if (!$this->isSameCurrency($money)) {
+            throw new MoneyOperationWithDifferentCurrencies();
+        }
+
         return new Money($this->getAmount() + $money->getAmount(), $this->getCurrency()->getFormat()->getCode());
     }
 
@@ -38,9 +44,14 @@ trait MoneyCalculator
      * @param Money $money
      *
      * @return Money
+     * @throws MoneyOperationWithDifferentCurrencies
      */
     public function subtract(Money $money): Money
     {
+        if (!$this->isSameCurrency($money)) {
+            throw new MoneyOperationWithDifferentCurrencies();
+        }
+
         return new Money($this->getAmount() - $money->getAmount(), $this->getCurrency()->getFormat()->getCode());
     }
 
@@ -129,33 +140,5 @@ trait MoneyCalculator
     public function absolute(): Money
     {
         return new Money(abs($this->getAmount()), $this->getCurrency()->getFormat()->getCode());
-    }
-
-    /**
-     * Distribute the amount to a collection of Money
-     *
-     * @param int $fractions
-     * @param int|null $chunk
-     *
-     * @return Collection
-     */
-    public function distribute(int $fractions, int $chunk = null): Collection
-    {
-//        $currentMoney = $this->clone();
-        $moneyCollection = new Collection();
-//
-//        while ($currentMoney->getAmount() > $chunk) {
-//            $moneyCollection->push($this->cloneNewAmount($amount));
-//
-//            $currentMoney = $currentMoney->subtract($this->cloneNewAmount($amount));
-//        }
-//
-//        // edge case, not in the loop => initial amount already lower than the chunk,
-//        // then the base amount itself is an item.
-//        if ($moneyCollection->isEmpty() || $currentMoney->getAmount() > 0) {
-//            $moneyCollection->push($currentMoney->clone());
-//        }
-
-        return $moneyCollection;
     }
 }

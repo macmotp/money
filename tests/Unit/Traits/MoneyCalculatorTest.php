@@ -4,6 +4,7 @@ namespace Macmotp\Money\Tests\Unit\Traits;
 
 use Macmotp\Currency;
 use Macmotp\Exceptions\MoneyDivisionByZero;
+use Macmotp\Exceptions\MoneyOperationWithDifferentCurrencies;
 use Macmotp\Money;
 use PHPUnit\Framework\TestCase;
 
@@ -30,6 +31,24 @@ class MoneyCalculatorTest extends TestCase
 
         $this->assertEquals(50, $money->subtract($subtract)->getAmount());
         $this->assertEquals(-50, $subtract->subtract($money)->getAmount());
+    }
+
+    public function testAddMoneyOperationWithDifferentCurrenciesException()
+    {
+        $this->expectException(MoneyOperationWithDifferentCurrencies::class);
+        $money = new Money(100, Currency::USD);
+        $sum = new Money(50, Currency::EUR);
+
+        $money->add($sum);
+    }
+
+    public function testSubtractMoneyOperationWithDifferentCurrenciesException()
+    {
+        $this->expectException(MoneyOperationWithDifferentCurrencies::class);
+        $money = new Money(100, Currency::USD);
+        $subtract = new Money(50, Currency::EUR);
+
+        $money->subtract($subtract);
     }
 
     public function testMoneyMultiplyOperation()
