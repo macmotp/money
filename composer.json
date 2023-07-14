@@ -1,6 +1,6 @@
 {
     "name": "macmotp/money",
-    "version": "v0.1.0",
+    "version": "v0.2.0",
     "description": "Light PHP Library to handle Money",
     "keywords": [
         "macmotp",

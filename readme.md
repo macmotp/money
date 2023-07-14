@@ -42,7 +42,9 @@ echo $money->print();
 #### List of basic methods
 - `getAmount()`: return the amount in cents;
 - `getAmountForHumans()`: return the amount in decimals;
-- `getCurrency()`: return the currency (as Currency implementation, not as string);
+- `getCurrencyCode()`: return the currency code;
+- `getCurrencySymbol()`: return the currency symbol;
+- `getCurrency()`: return the currency object (as Currency implementation, not as string);
 - `clone()`: clone the entire object;
 - `zero()`: set the amount to zero;
 
@@ -73,6 +75,7 @@ echo $money->withCode()
 ```
 
 #### List of methods for printing
+- `toArray()`: convert the object into array;
 - `withSymbol()`: print the symbol and not the currency code;
 - `withoutSymbol()`: do not print neither symbol or currency code;
 - `withCode()`: print the currency code and not the code;
