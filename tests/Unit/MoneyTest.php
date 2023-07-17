@@ -30,32 +30,9 @@ class MoneyTest extends TestCase
         int $outputAmount,
         string $outputCurrencyCode,
         string $outputCurrencySymbol
-    ): void {
+    ): void
+    {
         $money = new Money($inputAmount, $inputCurrency);
-
-        $this->assertEquals($outputAmount, $money->getAmount());
-        $this->assertEquals($outputCurrencyCode, $money->getCurrencyCode());
-        $this->assertEquals($outputCurrencySymbol, $money->getCurrencySymbol());
-    }
-
-    /**
-     * @dataProvider listConstructors
-     *
-     * @param $inputAmount
-     * @param string $inputCurrency
-     * @param int $outputAmount
-     * @param string $outputCurrencyCode
-     * @param string $outputCurrencySymbol
-     * @return void
-     */
-    public function testMoneyMakeConstructor(
-        $inputAmount,
-        string $inputCurrency,
-        int $outputAmount,
-        string $outputCurrencyCode,
-        string $outputCurrencySymbol
-    ): void {
-        $money = Money::make($inputAmount, $inputCurrency);
 
         $this->assertEquals($outputAmount, $money->getAmount());
         $this->assertEquals($outputCurrencyCode, $money->getCurrencyCode());
@@ -125,26 +102,26 @@ class MoneyTest extends TestCase
             [100, Currency::IDR, 100, Currency::IDR, 'Rp'],
             [100, Currency::ILS, 100, Currency::ILS, '₪'],
             [100, Currency::INR, 100, Currency::INR, '₹'],
-            [100, Currency::JPY, 100, Currency::JPY, '$'],
-            [100, Currency::KRW, 100, Currency::KRW, '$'],
-            [100, Currency::MXN, 100, Currency::MXN, '$'],
-            [100, Currency::MYR, 100, Currency::MYR, '$'],
-            [100, Currency::NOK, 100, Currency::NOK, '$'],
-            [100, Currency::NZD, 100, Currency::NZD, '$'],
-            [100, Currency::PHP, 100, Currency::PHP, '$'],
-            [100, Currency::PLN, 100, Currency::PLN, '$'],
-            [100, Currency::RON, 100, Currency::RON, '$'],
-            [100, Currency::RUB, 100, Currency::RUB, '$'],
-            [100, Currency::SAR, 100, Currency::SAR, '$'],
-            [100, Currency::SEK, 100, Currency::SEK, '$'],
-            [100, Currency::SGD, 100, Currency::SGD, '$'],
-            [100, Currency::THB, 100, Currency::THB, '$'],
-            [100, Currency::TRY, 100, Currency::TRY, '$'],
-            [100, Currency::TWD, 100, Currency::TWD, '$'],
-            [100, Currency::UAH, 100, Currency::UAH, '$'],
-            [100, Currency::UYU, 100, Currency::UYU, '$'],
-            [100, Currency::VND, 100, Currency::VND, '$'],
-            [100, Currency::ZAR, 100, Currency::ZAR, '$'],
+            [100, Currency::JPY, 100, Currency::JPY, '¥'],
+            [100, Currency::KRW, 100, Currency::KRW, '₩'],
+            [100, Currency::MXN, 100, Currency::MXN, 'MX$'],
+            [100, Currency::MYR, 100, Currency::MYR, 'RM'],
+            [100, Currency::NOK, 100, Currency::NOK, 'kr'],
+            [100, Currency::NZD, 100, Currency::NZD, 'NZ$'],
+            [100, Currency::PHP, 100, Currency::PHP, '₱'],
+            [100, Currency::PLN, 100, Currency::PLN, 'zł'],
+            [100, Currency::RON, 100, Currency::RON, 'lei'],
+            [100, Currency::RUB, 100, Currency::RUB, '₽'],
+            [100, Currency::SAR, 100, Currency::SAR, '﷼'],
+            [100, Currency::SEK, 100, Currency::SEK, 'kr'],
+            [100, Currency::SGD, 100, Currency::SGD, 'S$'],
+            [100, Currency::THB, 100, Currency::THB, '฿'],
+            [100, Currency::TRY, 100, Currency::TRY, '₺'],
+            [100, Currency::TWD, 100, Currency::TWD, 'NT$'],
+            [100, Currency::UAH, 100, Currency::UAH, '₴'],
+            [100, Currency::UYU, 100, Currency::UYU, 'U$'],
+            [100, Currency::VND, 100, Currency::VND, '₫'],
+            [100, Currency::ZAR, 100, Currency::ZAR, 'R'],
             // Use string as integer
             ['12345', Currency::USD, 12345, Currency::USD, '$'],
             // Rounding numbers
@@ -161,34 +138,33 @@ class MoneyTest extends TestCase
             [143.89 * 100, Currency::USD, 14389, Currency::USD, '$'],
             [141.73 * 100, Currency::USD, 14173, Currency::USD, '$'],
             [19214.26 * 100, Currency::USD, 1921426, Currency::USD, '$'],
-            // Keeping the following for reference:
-            // [9074.72 * 100, Currency::USD, 907472, Currency::USD, '$'],
-            // [8389.97 * 100, Currency::USD, 838997, Currency::USD, '$'],
-            // [16.33 * 100, Currency::USD, 1633, Currency::USD, '$'],
-            // [522.18 * 100, Currency::USD, 52218, Currency::USD, '$'],
-            // [1247.34 * 100, Currency::USD, 124734, Currency::USD, '$'],
-            // [160.98 * 100, Currency::USD, 16098, Currency::USD, '$'],
-            // [151.45 * 100, Currency::USD, 15145, Currency::USD, '$'],
-            // [650.67 * 100, Currency::USD, 65067, Currency::USD, '$'],
-            // [279.46 * 100, Currency::USD, 27946, Currency::USD, '$'],
-            // [9.62 * 100, Currency::USD, 962, Currency::USD, '$'],
-            // [1121.34 * 100, Currency::USD, 112134, Currency::USD, '$'],
-            // [148.14 * 100, Currency::USD, 14814, Currency::USD, '$'],
-            // [4189.23 * 100, Currency::USD, 418923, Currency::USD, '$'],
-            // [150.39 * 100, Currency::USD, 15039, Currency::USD, '$'],
-            // [129.98 * 100, Currency::USD, 12998, Currency::USD, '$'],
-            // [140.17 * 100, Currency::USD, 14017, Currency::USD, '$'],
-            // [140.2 * 100, Currency::USD, 14020, Currency::USD, '$'],
-            // [79.99 * 100, Currency::USD, 7999, Currency::USD, '$'],
-            // [70.1 * 100, Currency::USD, 7010, Currency::USD, '$'],
-            // [74.6 * 100, Currency::USD, 7460, Currency::USD, '$'],
-            // [71.24 * 100, Currency::USD, 7124, Currency::USD, '$'],
-            // [2.53 * 100, Currency::USD, 253, Currency::USD, '$'],
-            // [68.74 * 100, Currency::USD, 6874, Currency::USD, '$'],
-            // [270.9 * 100, Currency::USD, 27090, Currency::USD, '$'],
-            // [65.82 * 100, Currency::USD, 6582, Currency::USD, '$'],
-            // [19.4 * 100, Currency::USD, 1940, Currency::USD, '$'],
-            // [19.99 * 100, Currency::USD, 1999, Currency::USD, '$'],
+            [9074.72 * 100, Currency::USD, 907472, Currency::USD, '$'],
+            [8389.97 * 100, Currency::USD, 838997, Currency::USD, '$'],
+            [16.33 * 100, Currency::USD, 1633, Currency::USD, '$'],
+            [522.18 * 100, Currency::USD, 52218, Currency::USD, '$'],
+            [1247.34 * 100, Currency::USD, 124734, Currency::USD, '$'],
+            [160.98 * 100, Currency::USD, 16098, Currency::USD, '$'],
+            [151.45 * 100, Currency::USD, 15145, Currency::USD, '$'],
+            [650.67 * 100, Currency::USD, 65067, Currency::USD, '$'],
+            [279.46 * 100, Currency::USD, 27946, Currency::USD, '$'],
+            [9.62 * 100, Currency::USD, 962, Currency::USD, '$'],
+            [1121.34 * 100, Currency::USD, 112134, Currency::USD, '$'],
+            [148.14 * 100, Currency::USD, 14814, Currency::USD, '$'],
+            [4189.23 * 100, Currency::USD, 418923, Currency::USD, '$'],
+            [150.39 * 100, Currency::USD, 15039, Currency::USD, '$'],
+            [129.98 * 100, Currency::USD, 12998, Currency::USD, '$'],
+            [140.17 * 100, Currency::USD, 14017, Currency::USD, '$'],
+            [140.2 * 100, Currency::USD, 14020, Currency::USD, '$'],
+            [79.99 * 100, Currency::USD, 7999, Currency::USD, '$'],
+            [70.1 * 100, Currency::USD, 7010, Currency::USD, '$'],
+            [74.6 * 100, Currency::USD, 7460, Currency::USD, '$'],
+            [71.24 * 100, Currency::USD, 7124, Currency::USD, '$'],
+            [2.53 * 100, Currency::USD, 253, Currency::USD, '$'],
+            [68.74 * 100, Currency::USD, 6874, Currency::USD, '$'],
+            [270.9 * 100, Currency::USD, 27090, Currency::USD, '$'],
+            [65.82 * 100, Currency::USD, 6582, Currency::USD, '$'],
+            [19.4 * 100, Currency::USD, 1940, Currency::USD, '$'],
+            [19.99 * 100, Currency::USD, 1999, Currency::USD, '$'],
         ];
     }
 }

@@ -11,16 +11,16 @@ final class NOK extends AbstractCurrency implements Currency
     public function __construct()
     {
         parent::__construct(new Format());
-        $this->format->setName('United Arab Emirates Dirham');
-        $this->format->setCode('AED');
-        $this->format->setSymbol('د.إ');
+        $this->format->setName('Norwegian Krone');
+        $this->format->setCode(Currency::NOK);
+        $this->format->setSymbol('kr');
         $this->format->setShowSymbol(true);
         $this->format->setShowCode(false);
-        $this->format->setShowSpace(false);
-        $this->format->setShowSymbolOrCodeOnLeft(true);
+        $this->format->setShowSpace(true);
+        $this->format->setShowSymbolOrCodeOnLeft(false);
         $this->format->setShowDecimals(true);
         $this->format->setDecimalSeparator(',');
-        $this->format->setThousandsSeparator('.');
+        $this->format->setThousandsSeparator(' ');
         $this->format->setNumberOfDecimals(2);
         $this->format->setDefaultNumberOfDecimals(2);
     }

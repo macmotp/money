@@ -11,17 +11,17 @@ final class JPY extends AbstractCurrency implements Currency
     public function __construct()
     {
         parent::__construct(new Format());
-        $this->format->setName('United Arab Emirates Dirham');
-        $this->format->setCode('AED');
-        $this->format->setSymbol('د.إ');
+        $this->format->setName('Japanese Yen');
+        $this->format->setCode(Currency::JPY);
+        $this->format->setSymbol('¥');
         $this->format->setShowSymbol(true);
         $this->format->setShowCode(false);
         $this->format->setShowSpace(false);
-        $this->format->setShowSymbolOrCodeOnLeft(true);
-        $this->format->setShowDecimals(true);
-        $this->format->setDecimalSeparator(',');
-        $this->format->setThousandsSeparator('.');
-        $this->format->setNumberOfDecimals(2);
-        $this->format->setDefaultNumberOfDecimals(2);
+        $this->format->setShowSymbolOrCodeOnLeft(false);
+        $this->format->setShowDecimals(false);
+        $this->format->setDecimalSeparator('.');
+        $this->format->setThousandsSeparator(',');
+        $this->format->setNumberOfDecimals(0);
+        $this->format->setDefaultNumberOfDecimals(0);
     }
 }

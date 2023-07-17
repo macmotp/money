@@ -11,9 +11,9 @@ final class UYU extends AbstractCurrency implements Currency
     public function __construct()
     {
         parent::__construct(new Format());
-        $this->format->setName('United Arab Emirates Dirham');
-        $this->format->setCode('AED');
-        $this->format->setSymbol('د.إ');
+        $this->format->setName('Uruguayan Peso');
+        $this->format->setCode(Currency::UYU);
+        $this->format->setSymbol('U$');
         $this->format->setShowSymbol(true);
         $this->format->setShowCode(false);
         $this->format->setShowSpace(false);

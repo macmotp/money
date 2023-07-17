@@ -12,9 +12,9 @@ final class TRY_ extends AbstractCurrency implements Currency
     public function __construct()
     {
         parent::__construct(new Format());
-        $this->format->setName('United Arab Emirates Dirham');
-        $this->format->setCode('AED');
-        $this->format->setSymbol('د.إ');
+        $this->format->setName('Turkish Lira');
+        $this->format->setCode(Currency::TRY);
+        $this->format->setSymbol('₺');
         $this->format->setShowSymbol(true);
         $this->format->setShowCode(false);
         $this->format->setShowSpace(false);
