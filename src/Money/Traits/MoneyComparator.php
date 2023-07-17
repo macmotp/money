@@ -24,7 +24,7 @@ trait MoneyComparator
      */
     public function isSameCurrency(Money ...$money): bool
     {
-        return (new Collection($money))->filter(fn (Money $m) => $m->getCurrency()->getFormat()->getCode() !== $this->getCurrency()->getFormat()->getCode())->isEmpty();
+        return (new Collection($money))->filter(fn (Money $m) => $m->getCurrencyCode() !== $this->getCurrencyCode())->isEmpty();
     }
 
     /**

@@ -94,10 +94,10 @@ trait MoneyAggregator
     private static function aggregation(string $aggregation, array $money): Money
     {
         $collection = new Collection($money);
-        $currencyCode = $collection->first()->getCurrency()->getFormat()->getCode();
+        $currencyCode = $collection->first()->getCurrencyCode();
 
         return new Money(
-            $collection->filter(fn (Money $m) => ($m->getCurrency()->getFormat()->getCode() === $currencyCode))->{$aggregation}(fn (Money $m) => $m->getAmount()),
+            $collection->filter(fn (Money $m) => ($m->getCurrencyCode() === $currencyCode))->{$aggregation}(fn (Money $m) => $m->getAmount()),
             $currencyCode
         );
     }

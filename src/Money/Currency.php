@@ -12,71 +12,45 @@ use Macmotp\Currencies\Support\Format;
  */
 interface Currency
 {
+    public const AED = 'AED';
+    public const ARS = 'ARS';
+    public const AUD = 'AUD';
+    public const BGN = 'BGN';
+    public const BRL = 'BRL';
+    public const CAD = 'CAD';
+    public const CHF = 'CHF';
+    public const CLP = 'CLP';
+    public const CNY = 'CNY';
+    public const CZK = 'CZK';
+    public const DKK = 'DKK';
     public const EUR = 'EUR';
+    public const GBP = 'GBP';
+    public const HKD = 'HKD';
+    public const HUF = 'HUF';
+    public const IDR = 'IDR';
+    public const ILS = 'ILS';
+    public const INR = 'INR';
+    public const JPY = 'JPY';
+    public const KRW = 'KRW';
+    public const MXN = 'MXN';
+    public const MYR = 'MYR';
+    public const NOK = 'NOK';
+    public const NZD = 'NZD';
+    public const PHP = 'PHP';
+    public const PLN = 'PLN';
+    public const RON = 'RON';
+    public const RUB = 'RUB';
+    public const SAR = 'SAR';
+    public const SEK = 'SEK';
+    public const SGD = 'SGD';
+    public const THB = 'THB';
+    public const TRY = 'TRY';
+    public const TWD = 'TWD';
+    public const UAH = 'UAH';
     public const USD = 'USD';
+    public const UYU = 'UYU';
+    public const VND = 'VND';
+    public const ZAR = 'ZAR';
 
     public function getFormat(): Format;
-
-    //    /**
-    //     * Get Currency Name
-    //     *
-    //     * @return string
-    //     */
-    //    public function getName(): string;
-    //
-    //    /**
-    //     * Get Currency Code
-    //     *
-    //     * @return string
-    //     */
-    //    public function getCode(): string;
-    //
-    //    /**
-    //     * Get Currency Numeric Code
-    //     *
-    //     * @return int
-    //     */
-    //    public function getNumericCode(): int;
-    //
-    //    /**
-    //     * Get Currency Symbol
-    //     *
-    //     * @return string
-    //     */
-    //    public function getSymbol(): string;
-    //
-    //    /**
-    //     * Check if Currency prints with space
-    //     *
-    //     * @return bool
-    //     */
-    //    public function showSpace(): bool;
-    //
-    //    /**
-    //     * Check if Currency prints with symbol on left
-    //     *
-    //     * @return bool
-    //     */
-    //    public function showSymbolOnLeft(): bool;
-    //
-    //    /**
-    //     * Get Decimal Separator Character
-    //     *
-    //     * @return string
-    //     */
-    //    public function getDecimalSeparator(): string;
-    //
-    //    /**
-    //     * Get Thousands Separator Character
-    //     *
-    //     * @return string
-    //     */
-    //    public function getThousandsSeparator(): string;
-    //
-    //    /**
-    //     * Get number of Decimals
-    //     *
-    //     * @return int
-    //     */
-    //    public function getNumberOfDecimals(): int;
 }

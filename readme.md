@@ -25,7 +25,7 @@ composer require macmotp/money
 use Macmotp\Money;
 use Macmotp\Currency;
 
-// Amounts are in cents (or lowest atomic value)!
+// Amounts are always in cents (or lowest minor unit)!
 $amount = 100;
 
 // All Currencies adopt ISO 4217 standard
@@ -38,16 +38,26 @@ $money = new Money($amount, $currency);
 echo $money->print();
 
 // (string) '1.00$'
+
+// Another example with Vietnamese Dong
+$money = new Money(10000, Currency::VND);
+
+echo $money->print();
+
+// (string) '10 000₫'
+
 ```
 #### List of basic methods
 - `getAmount()`: return the amount in cents;
 - `getAmountForHumans()`: return the amount in decimals;
-- `getCurrency()`: return the currency (as Currency implementation, not as string);
+- `getCurrencyCode()`: return the currency code;
+- `getCurrencySymbol()`: return the currency symbol;
+- `getCurrency()`: return the currency object (as Currency implementation, not as string);
 - `clone()`: clone the entire object;
 - `zero()`: set the amount to zero;
 
 _If you want to print any of the currency properties, check the Format class._
-_For example: if you want to get the currency code, you can run `$money->getCurrency()->getFormat()->getCode()`_
+_For example: if you want to get the currency code, you can run `$money->getCurrencyCode()`_
 
 ### Print Money (on the screen, not for real)
 ``` php
@@ -73,10 +83,11 @@ echo $money->withCode()
 ```
 
 #### List of methods for printing
+- `toArray()`: convert the object into array;
 - `withSymbol()`: print the symbol and not the currency code;
-- `withoutSymbol()`: do not print neither symbol or currency code;
+- `withoutSymbol()`: do not print neither symbol nor currency code;
 - `withCode()`: print the currency code and not the code;
-- `withoutCode()`: do not print neither symbol or currency code;
+- `withoutCode()`: do not print neither symbol nor currency code;
 - `withSymbolOnLeft()`: print symbol on the left;
 - `withSymbolOnRight()`: print symbol on the right;
 - `withCodeOnLeft()`: print currency code on the left;
@@ -157,6 +168,10 @@ echo $moneyOne->isLessThan($moneyTwo);
 - `isZeroOrPositive()`;
 - `isZeroOrNegative()`;
 
+### List of Currencies in the package
+
+_If you are in need of any other currency, please open an issue._
+
 ## Testing
 
 ``` bash
@@ -165,11 +180,11 @@ composer test
 
 ## Changelog
 
-Please see [CHANGELOG](changelog.md) for more information on what has changed recently.
+Please see [changelog](changelog.md) for more information on what has changed recently.
 
 ## Contributing
 
-Please see [CONTRIBUTING](.github/contributing.md) for details.
+Please see [contributing](.github/contributing.md) for details.
 
 ## Security Vulnerabilities
 

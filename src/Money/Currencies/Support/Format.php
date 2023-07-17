@@ -5,11 +5,10 @@ namespace Macmotp\Currencies\Support;
 /**
  * Format class
  */
-class Format
+final class Format
 {
     private string $name;
     private string $code;
-    private int $numericCode;
     private string $symbol;
     private bool $showSymbol;
     private bool $showCode;
@@ -45,20 +44,6 @@ class Format
     public function setCode(string $code): self
     {
         $this->code = $code;
-
-        return $this;
-    }
-
-    /**
-     * Set Numeric Code
-     *
-     * @param int $numericCode
-     *
-     * @return Format
-     */
-    public function setNumericCode(int $numericCode): self
-    {
-        $this->numericCode = $numericCode;
 
         return $this;
     }
@@ -223,16 +208,6 @@ class Format
     public function getCode(): string
     {
         return $this->code;
-    }
-
-    /**
-     * Get Numeric Code
-     *
-     * @return int
-     */
-    public function getNumericCode(): int
-    {
-        return $this->numericCode;
     }
 
     /**

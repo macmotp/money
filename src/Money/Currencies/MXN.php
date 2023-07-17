@@ -6,17 +6,17 @@ use Macmotp\Currencies\Support\AbstractCurrency;
 use Macmotp\Currencies\Support\Format;
 use Macmotp\Currency;
 
-final class USD extends AbstractCurrency implements Currency
+final class MXN extends AbstractCurrency implements Currency
 {
     public function __construct()
     {
         parent::__construct(new Format());
-        $this->format->setName('United States Dollar');
-        $this->format->setCode('USD');
-        $this->format->setSymbol('$');
+        $this->format->setName('Mexican Peso');
+        $this->format->setCode(Currency::MXN);
+        $this->format->setSymbol('MX$');
         $this->format->setShowSymbol(true);
         $this->format->setShowCode(false);
-        $this->format->setShowSpace(false);
+        $this->format->setShowSpace(true);
         $this->format->setShowSymbolOrCodeOnLeft(false);
         $this->format->setShowDecimals(true);
         $this->format->setDecimalSeparator('.');

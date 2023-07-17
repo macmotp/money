@@ -35,7 +35,7 @@ class Money
      */
     public function __construct($amount, string $currency)
     {
-        $this->amount = (int) round((float) $amount ??= 0);
+        $this->amount = (int) round((float)$amount ?? 0);
         $this->currency = Context::getCurrencyFromCode(strtoupper($currency));
     }
 
@@ -55,6 +55,26 @@ class Money
     public function getAmount(): int
     {
         return $this->amount;
+    }
+
+    /**
+     * Get the currency code
+     *
+     * @return string
+     */
+    public function getCurrencyCode(): string
+    {
+        return $this->getCurrency()->getFormat()->getCode();
+    }
+
+    /**
+     * Get the currency symbol
+     *
+     * @return string
+     */
+    public function getCurrencySymbol(): string
+    {
+        return $this->getCurrency()->getFormat()->getSymbol();
     }
 
     /**
@@ -85,7 +105,7 @@ class Money
      */
     public function clone(): self
     {
-        return new self($this->getAmount(), $this->getCurrency()->getFormat()->getCode());
+        return new self($this->getAmount(), $this->getCurrencyCode());
     }
 
     /**
@@ -96,6 +116,6 @@ class Money
      */
     public function zero(): self
     {
-        return new self(0, $this->getCurrency()->getFormat()->getCode());
+        return new self(0, $this->getCurrencyCode());
     }
 }

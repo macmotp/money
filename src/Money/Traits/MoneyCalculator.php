@@ -28,7 +28,7 @@ trait MoneyCalculator
             throw new MoneyOperationWithDifferentCurrencies();
         }
 
-        return new Money($this->getAmount() + $money->getAmount(), $this->getCurrency()->getFormat()->getCode());
+        return new Money($this->getAmount() + $money->getAmount(), $this->getCurrencyCode());
     }
 
     /**
@@ -51,7 +51,7 @@ trait MoneyCalculator
             throw new MoneyOperationWithDifferentCurrencies();
         }
 
-        return new Money($this->getAmount() - $money->getAmount(), $this->getCurrency()->getFormat()->getCode());
+        return new Money($this->getAmount() - $money->getAmount(), $this->getCurrencyCode());
     }
 
     /**
@@ -75,7 +75,7 @@ trait MoneyCalculator
             default => $this->getAmount() * $factor,
         };
 
-        return new Money($amount, $this->getCurrency()->getFormat()->getCode());
+        return new Money($amount, $this->getCurrencyCode());
     }
 
     /**
@@ -104,7 +104,7 @@ trait MoneyCalculator
             default => $this->getAmount() / $factor,
         };
 
-        return new Money($amount, $this->getCurrency()->getFormat()->getCode());
+        return new Money($amount, $this->getCurrencyCode());
     }
 
     /**
@@ -138,6 +138,6 @@ trait MoneyCalculator
      */
     public function absolute(): Money
     {
-        return new Money(abs($this->getAmount()), $this->getCurrency()->getFormat()->getCode());
+        return new Money(abs($this->getAmount()), $this->getCurrencyCode());
     }
 }
