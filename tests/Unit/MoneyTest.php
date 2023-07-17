@@ -30,8 +30,7 @@ class MoneyTest extends TestCase
         int $outputAmount,
         string $outputCurrencyCode,
         string $outputCurrencySymbol
-    ): void
-    {
+    ): void {
         $money = new Money($inputAmount, $inputCurrency);
 
         $this->assertEquals($outputAmount, $money->getAmount());
@@ -55,8 +54,7 @@ class MoneyTest extends TestCase
         int $outputAmount,
         string $outputCurrencyCode,
         string $outputCurrencySymbol
-    ): void
-    {
+    ): void {
         $money = Money::make($inputAmount, $inputCurrency);
 
         $this->assertEquals($outputAmount, $money->getAmount());
