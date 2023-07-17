@@ -35,7 +35,7 @@ class Money
      */
     public function __construct($amount, string $currency)
     {
-        $this->amount = (int) round((float) $amount ??= 0);
+        $this->amount = (int) round((float)$amount ?? 0);
         $this->currency = Context::getCurrencyFromCode(strtoupper($currency));
     }
 

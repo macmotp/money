@@ -6,14 +6,13 @@ use Macmotp\Currencies\Support\AbstractCurrency;
 use Macmotp\Currencies\Support\Format;
 use Macmotp\Currency;
 
-class EUR extends AbstractCurrency implements Currency
+final class EUR extends AbstractCurrency implements Currency
 {
     public function __construct()
     {
         parent::__construct(new Format());
         $this->format->setName('Euro');
-        $this->format->setCode('EUR');
-        $this->format->setNumericCode(978);
+        $this->format->setCode(Currency::EUR);
         $this->format->setSymbol('€');
         $this->format->setShowSymbol(true);
         $this->format->setShowCode(false);
