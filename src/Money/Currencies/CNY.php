@@ -3,25 +3,23 @@
 namespace Macmotp\Currencies;
 
 use Macmotp\Currencies\Support\AbstractCurrency;
-use Macmotp\Currencies\Support\Format;
 use Macmotp\Currency;
 
 final class CNY extends AbstractCurrency implements Currency
 {
     public function __construct()
     {
-        parent::__construct(new Format());
-        $this->format->setName('Chinese Yuan');
-        $this->format->setCode(Currency::CNY);
-        $this->format->setSymbol('¥');
-        $this->format->setShowSymbol(true);
-        $this->format->setShowCode(false);
-        $this->format->setShowSpace(false);
-        $this->format->setShowSymbolOrCodeOnLeft(false);
-        $this->format->setShowDecimals(true);
-        $this->format->setDecimalSeparator('.');
-        $this->format->setThousandsSeparator(' ');
-        $this->format->setNumberOfDecimals(2);
-        $this->format->setDefaultNumberOfDecimals(2);
+        $this->setName('Chinese Yuan');
+        $this->setCode(Currency::CNY);
+        $this->setSymbol('¥');
+        $this->setShowSymbol(true);
+        $this->setShowCode(false);
+        $this->setShowSpace(false);
+        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowDecimals(true);
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(' ');
+        $this->setNumberOfDecimals(2);
+        $this->setDefaultNumberOfDecimals(2);
     }
 }

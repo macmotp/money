@@ -3,25 +3,23 @@
 namespace Macmotp\Currencies;
 
 use Macmotp\Currencies\Support\AbstractCurrency;
-use Macmotp\Currencies\Support\Format;
 use Macmotp\Currency;
 
 final class AED extends AbstractCurrency implements Currency
 {
     public function __construct()
     {
-        parent::__construct(new Format());
-        $this->format->setName('United Arab Emirates Dirham');
-        $this->format->setCode(Currency::AED);
-        $this->format->setSymbol('د.إ');
-        $this->format->setShowSymbol(true);
-        $this->format->setShowCode(false);
-        $this->format->setShowSpace(false);
-        $this->format->setShowSymbolOrCodeOnLeft(true);
-        $this->format->setShowDecimals(true);
-        $this->format->setDecimalSeparator(',');
-        $this->format->setThousandsSeparator('.');
-        $this->format->setNumberOfDecimals(2);
-        $this->format->setDefaultNumberOfDecimals(2);
+        $this->setName('United Arab Emirates Dirham');
+        $this->setCode(Currency::AED);
+        $this->setSymbol('د.إ');
+        $this->setShowSymbol(true);
+        $this->setShowCode(false);
+        $this->setShowSpace(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
+        $this->setShowDecimals(true);
+        $this->setDecimalSeparator(',');
+        $this->setThousandsSeparator('.');
+        $this->setNumberOfDecimals(2);
+        $this->setDefaultNumberOfDecimals(2);
     }
 }

@@ -169,6 +169,52 @@ echo $moneyOne->isLessThan($moneyTwo);
 - `isZeroOrNegative()`;
 
 ### List of Currencies in the package
+``` php
+use Macmotp\Money;
+
+$list = Money::getAllCurrencies();
+// This will return a Illuminate\Support\Collection
+```
+These are the implemented currencies (top exchanged in the world):
+- `AED`: United Arab Emirates Dirham
+- `ARS`: Argentine Peso
+- `AUD`: Australian Dollar
+- `BGN`: Bulgarian Lev
+- `BRL`: Brazilian Real
+- `CAD`: Canadian Dollar
+- `CHF`: Swiss Franc
+- `CLP`: Chilean Peso
+- `CNY`: Chinese Yuan
+- `CZK`: Czech Koruna
+- `DKK`: Danish Krone
+- `EUR`: Euro
+- `GBP`: British Pound
+- `HKD`: Hong Kong Dollar
+- `HUF`: Hungarian Forint
+- `IDR`: Indonesian Rupiah
+- `ILS`: Israeli New Shekel
+- `INR`: Indian Rupee
+- `JPY`: Japanese Yen
+- `KRW`: South Korean Won
+- `MXN`: Mexican Peso
+- `MYR`: Malaysian Ringgit
+- `NOK`: Norwegian Krone
+- `NZD`: New Zealand Dollar
+- `PHP`: Philippine Peso
+- `PLN`: Polish Złoty
+- `RON`: Romanian Leu
+- `RUB`: Russian Ruble
+- `SAR`: Saudi Riyal
+- `SEK`: Swedish Krona
+- `SGD`: Singapore Dollar
+- `THB`: Thai Baht
+- `TRY`: Turkish Lira
+- `TWD`: New Taiwan Dollar
+- `UAH`: Ukrainian Hryvnia
+- `USD`: United States Dollar
+- `UYU`: Uruguayan Peso
+- `VND`: Vietnamese Đồng
+- `ZAR`: South African Rand
 
 _If you are in need of any other currency, please open an issue._
 

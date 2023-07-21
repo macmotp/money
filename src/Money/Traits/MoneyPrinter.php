@@ -27,7 +27,7 @@ trait MoneyPrinter
      */
     public function withSymbol(): Money
     {
-        $this->getCurrency()->getFormat()->setShowSymbol(true)->setShowCode(false);
+        $this->getCurrency()->setShowSymbol(true)->setShowCode(false);
 
         return $this;
     }
@@ -39,7 +39,7 @@ trait MoneyPrinter
      */
     public function withoutSymbol(): Money
     {
-        $this->getCurrency()->getFormat()->setShowSymbol(false)->setShowCode(false);
+        $this->getCurrency()->setShowSymbol(false)->setShowCode(false);
 
         return $this;
     }
@@ -51,7 +51,7 @@ trait MoneyPrinter
      */
     public function withCode(): Money
     {
-        $this->getCurrency()->getFormat()->setShowCode(true)->setShowSymbol(false);
+        $this->getCurrency()->setShowCode(true)->setShowSymbol(false);
 
         return $this;
     }
@@ -63,7 +63,7 @@ trait MoneyPrinter
      */
     public function withoutCode(): Money
     {
-        $this->getCurrency()->getFormat()->setShowCode(false)->setShowSymbol(false);
+        $this->getCurrency()->setShowCode(false)->setShowSymbol(false);
 
         return $this;
     }
@@ -75,7 +75,7 @@ trait MoneyPrinter
      */
     public function withSymbolOnLeft(): Money
     {
-        $this->getCurrency()->getFormat()->setShowSymbolOrCodeOnLeft(true);
+        $this->getCurrency()->setShowSymbolOrCodeOnLeft(true);
 
         return $this;
     }
@@ -87,7 +87,7 @@ trait MoneyPrinter
      */
     public function withSymbolOnRight(): Money
     {
-        $this->getCurrency()->getFormat()->setShowSymbolOrCodeOnLeft(false);
+        $this->getCurrency()->setShowSymbolOrCodeOnLeft(false);
 
         return $this;
     }
@@ -119,7 +119,7 @@ trait MoneyPrinter
      */
     public function withSpace(): Money
     {
-        $this->getCurrency()->getFormat()->setShowSpace(true);
+        $this->getCurrency()->setShowSpace(true);
 
         return $this;
     }
@@ -131,7 +131,7 @@ trait MoneyPrinter
      */
     public function withoutSpace(): Money
     {
-        $this->getCurrency()->getFormat()->setShowSpace(false);
+        $this->getCurrency()->setShowSpace(false);
 
         return $this;
     }
@@ -143,7 +143,7 @@ trait MoneyPrinter
      */
     public function withoutDecimals(): Money
     {
-        $this->getCurrency()->getFormat()->setShowDecimals(false);
+        $this->getCurrency()->setShowDecimals(false);
 
         return $this;
     }
@@ -157,7 +157,7 @@ trait MoneyPrinter
      */
     public function withDecimalSeparator(string $decimalSeparator): Money
     {
-        $this->getCurrency()->getFormat()->setDecimalSeparator($decimalSeparator);
+        $this->getCurrency()->setDecimalSeparator($decimalSeparator);
 
         return $this;
     }
@@ -171,7 +171,7 @@ trait MoneyPrinter
      */
     public function withThousandsSeparator(string $thousandsSeparator): Money
     {
-        $this->getCurrency()->getFormat()->setThousandsSeparator($thousandsSeparator);
+        $this->getCurrency()->setThousandsSeparator($thousandsSeparator);
 
         return $this;
     }
@@ -185,7 +185,7 @@ trait MoneyPrinter
      */
     public function withNumberOfDecimals(int $numberOfDecimals): Money
     {
-        $this->getCurrency()->getFormat()->setNumberOfDecimals($numberOfDecimals);
+        $this->getCurrency()->setNumberOfDecimals($numberOfDecimals);
 
         return $this;
     }
@@ -203,7 +203,7 @@ trait MoneyPrinter
      */
     public function print(): string
     {
-        $currencyFormat = $this->getCurrency()->getFormat();
+        $currencyFormat = $this->getCurrency();
 
         // First, we print the amount
         $amount = number_format(

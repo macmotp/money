@@ -8,4 +8,9 @@ All notable changes to `macmotp/money` will be documented in this file
 
 ## v0.2.0 - 2023-07-18
 
-- added more currencies
+- add more currencies
+
+## v0.3.0 - 2023-07-18
+
+- fix dependencies
+- cleanup currency format
