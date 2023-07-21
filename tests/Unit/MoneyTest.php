@@ -73,6 +73,14 @@ class MoneyTest extends TestCase
     }
 
     /**
+     * @return void
+     */
+    public function testMoneyGetAllCurrenciesFunction(): void
+    {
+        $this->assertCount(39, Money::getAllCurrencies());
+    }
+
+    /**
      * List of different constructors
      *
      * @return array[]

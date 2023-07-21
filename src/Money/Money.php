@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Macmotp;
 
+use Illuminate\Support\Collection;
 use Macmotp\Currencies\Support\Context;
 use Macmotp\Traits\MoneyAggregator;
 use Macmotp\Traits\MoneyCalculator;
@@ -32,6 +33,9 @@ class Money
      * Why not type hint the $amount in the constructor?
      * Because it will cause rounding issues
      * -> see MoneyTest -> Real world examples that PHP cannot round properly
+     *
+     * @param $amount
+     * @param string $currency
      */
     public function __construct($amount, string $currency)
     {
@@ -41,6 +45,11 @@ class Money
 
     /**
      * Usage: Money::make(1000, 'USD');
+     *
+     * @param $amount
+     * @param string $currency
+     *
+     * @return Money
      */
     public static function make($amount, string $currency): self
     {
@@ -64,7 +73,7 @@ class Money
      */
     public function getCurrencyCode(): string
     {
-        return $this->getCurrency()->getFormat()->getCode();
+        return $this->getCurrency()->getCode();
     }
 
     /**
@@ -74,7 +83,7 @@ class Money
      */
     public function getCurrencySymbol(): string
     {
-        return $this->getCurrency()->getFormat()->getSymbol();
+        return $this->getCurrency()->getSymbol();
     }
 
     /**
@@ -84,7 +93,7 @@ class Money
      */
     public function getAmountForHumans(): float
     {
-        return $this->amount / pow(10, $this->getCurrency()->getFormat()->getDefaultNumberOfDecimals());
+        return $this->amount / pow(10, $this->getCurrency()->getDefaultNumberOfDecimals());
     }
 
     /**
@@ -102,6 +111,8 @@ class Money
      *
      * Example: $money = new Money(123456, 'USD');
      * $clone = $money->clone(); // $clone = new Money(123456, 'USD');
+     *
+     * @return Money
      */
     public function clone(): self
     {
@@ -113,9 +124,21 @@ class Money
      *
      * Example: $money = new Money(123456, 'USD');
      * $zero = $money->zero(); // $zero = new Money(0, 'USD');
+     *
+     * @return Money
      */
     public function zero(): self
     {
         return new self(0, $this->getCurrencyCode());
+    }
+
+    /**
+     * Get Collection with All the Currencies
+     *
+     * @return Collection
+     */
+    public static function getAllCurrencies(): Collection
+    {
+        return Context::getAll();
     }
 }
