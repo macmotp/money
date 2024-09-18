@@ -175,7 +175,7 @@ use Macmotp\Money;
 $list = Money::getAllCurrencies();
 // This will return a Illuminate\Support\Collection
 ```
-These are the implemented currencies (top exchanged in the world):
+These are some of the implemented currencies (top exchanged in the world):
 - `AED`: United Arab Emirates Dirham
 - `ARS`: Argentine Peso
 - `AUD`: Australian Dollar
@@ -216,7 +216,7 @@ These are the implemented currencies (top exchanged in the world):
 - `VND`: Vietnamese Đồng
 - `ZAR`: South African Rand
 
-_If you are in need of any other currency, please open an issue._
+_If you want to add another currency, please open an issue._
 
 ## Testing
 
