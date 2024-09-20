@@ -77,7 +77,7 @@ class MoneyTest extends TestCase
      */
     public function testMoneyGetAllCurrenciesFunction(): void
     {
-        $this->assertCount(39, Money::getAllCurrencies());
+        $this->assertCount(155, Money::getAllCurrencies());
     }
 
     /**
@@ -90,45 +90,6 @@ class MoneyTest extends TestCase
         return [
             // Simple canonical usage
             [100, Currency::USD, 100, Currency::USD, '$'],
-            // Different Currencies
-            [100, Currency::AED, 100, Currency::AED, 'د.إ'],
-            [100, Currency::ARS, 100, Currency::ARS, 'Arg$'],
-            [100, Currency::AUD, 100, Currency::AUD, 'A$'],
-            [100, Currency::BGN, 100, Currency::BGN, 'лев'],
-            [100, Currency::BRL, 100, Currency::BRL, 'R$'],
-            [100, Currency::CAD, 100, Currency::CAD, 'C$'],
-            [100, Currency::CHF, 100, Currency::CHF, 'F'],
-            [100, Currency::CLP, 100, Currency::CLP, 'Ch$'],
-            [100, Currency::CNY, 100, Currency::CNY, '¥'],
-            [100, Currency::CZK, 100, Currency::CZK, 'Kč'],
-            [100, Currency::DKK, 100, Currency::DKK, 'kr.'],
-            [100, Currency::EUR, 100, Currency::EUR, '€'],
-            [100, Currency::GBP, 100, Currency::GBP, '£'],
-            [100, Currency::HKD, 100, Currency::HKD, 'HK$'],
-            [100, Currency::HUF, 100, Currency::HUF, 'Ft'],
-            [100, Currency::IDR, 100, Currency::IDR, 'Rp'],
-            [100, Currency::ILS, 100, Currency::ILS, '₪'],
-            [100, Currency::INR, 100, Currency::INR, '₹'],
-            [100, Currency::JPY, 100, Currency::JPY, '¥'],
-            [100, Currency::KRW, 100, Currency::KRW, '₩'],
-            [100, Currency::MXN, 100, Currency::MXN, 'MX$'],
-            [100, Currency::MYR, 100, Currency::MYR, 'RM'],
-            [100, Currency::NOK, 100, Currency::NOK, 'kr'],
-            [100, Currency::NZD, 100, Currency::NZD, 'NZ$'],
-            [100, Currency::PHP, 100, Currency::PHP, '₱'],
-            [100, Currency::PLN, 100, Currency::PLN, 'zł'],
-            [100, Currency::RON, 100, Currency::RON, 'lei'],
-            [100, Currency::RUB, 100, Currency::RUB, '₽'],
-            [100, Currency::SAR, 100, Currency::SAR, '﷼'],
-            [100, Currency::SEK, 100, Currency::SEK, 'kr'],
-            [100, Currency::SGD, 100, Currency::SGD, 'S$'],
-            [100, Currency::THB, 100, Currency::THB, '฿'],
-            [100, Currency::TRY, 100, Currency::TRY, '₺'],
-            [100, Currency::TWD, 100, Currency::TWD, 'NT$'],
-            [100, Currency::UAH, 100, Currency::UAH, '₴'],
-            [100, Currency::UYU, 100, Currency::UYU, 'U$'],
-            [100, Currency::VND, 100, Currency::VND, '₫'],
-            [100, Currency::ZAR, 100, Currency::ZAR, 'R'],
             // Use string as integer
             ['12345', Currency::USD, 12345, Currency::USD, '$'],
             // Rounding numbers

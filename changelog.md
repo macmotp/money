@@ -14,8 +14,12 @@ All notable changes to `macmotp/money` will be documented in this file
 
 - support for PHP 8.2
 - cleanup currency format
-- 
+
 ## v0.4.0 - 2024-09-06
 
 - support for PHP 8.3
 - fix dependencies
+
+## v0.4.1 - 2024-09-18
+
+- add more currencies

@@ -11,15 +11,15 @@ final class SAR extends AbstractCurrency implements Currency
     {
         $this->setName('Saudi Riyal');
         $this->setCode(Currency::SAR);
-        $this->setSymbol('﷼');
+        $this->setSymbol('ر.س');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
-        $this->setShowSpace(true);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSpace(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

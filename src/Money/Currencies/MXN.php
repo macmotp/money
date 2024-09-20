@@ -11,7 +11,7 @@ final class MXN extends AbstractCurrency implements Currency
     {
         $this->setName('Mexican Peso');
         $this->setCode(Currency::MXN);
-        $this->setSymbol('MX$');
+        $this->setSymbol('Mex$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(true);
@@ -20,6 +20,6 @@ final class MXN extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

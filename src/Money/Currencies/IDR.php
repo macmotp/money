@@ -19,7 +19,7 @@ final class IDR extends AbstractCurrency implements Currency
         $this->setShowDecimals(false);
         $this->setDecimalSeparator(',');
         $this->setThousandsSeparator('.');
-        $this->setNumberOfDecimals(0);
-        $this->setDefaultNumberOfDecimals(0);
+        $this->setNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }
