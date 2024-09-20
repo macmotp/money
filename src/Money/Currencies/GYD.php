@@ -11,15 +11,15 @@ final class GYD extends AbstractCurrency implements Currency
     {
         $this->setName('Guyanese Dollar');
         $this->setCode(Currency::GYD);
-        $this->setSymbol('$');
+        $this->setSymbol('G$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
-        $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setShowSymbolOrCodeOnLeft(true);
+        $this->setShowDecimals(false);
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

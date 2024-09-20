@@ -11,15 +11,15 @@ final class MZN extends AbstractCurrency implements Currency
     {
         $this->setName('Mozambican Metical');
         $this->setCode(Currency::MZN);
-        $this->setSymbol('Mt');
+        $this->setSymbol('MT');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(true);
-        $this->setShowDecimals(true);
-        $this->setDecimalSeparator('.');
-        $this->setThousandsSeparator(',');
+        $this->setShowDecimals(false);
+        $this->setDecimalSeparator(',');
+        $this->setThousandsSeparator('.');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

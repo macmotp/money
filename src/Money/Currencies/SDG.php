@@ -11,7 +11,7 @@ final class SDG extends AbstractCurrency implements Currency
     {
         $this->setName('Sudanese Pound');
         $this->setCode(Currency::SDG);
-        $this->setSymbol('LS');
+        $this->setSymbol('ج.س');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class SDG extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

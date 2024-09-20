@@ -16,10 +16,10 @@ final class ZAR extends AbstractCurrency implements Currency
         $this->setShowCode(false);
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(true);
-        $this->setShowDecimals(false);
+        $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
-        $this->setNumberOfDecimals(0);
-        $this->setDefaultNumberOfDecimals(0);
+        $this->setNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

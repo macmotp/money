@@ -9,17 +9,17 @@ final class FJD extends AbstractCurrency implements Currency
 {
     public function __construct()
     {
-        $this->setName('Fiji Dollar');
+        $this->setName('Fijian Dollar');
         $this->setCode(Currency::FJD);
-        $this->setSymbol('$');
+        $this->setSymbol('FJ$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

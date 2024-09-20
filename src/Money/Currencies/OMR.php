@@ -11,7 +11,7 @@ final class OMR extends AbstractCurrency implements Currency
     {
         $this->setName('Omani Rial');
         $this->setCode(Currency::OMR);
-        $this->setSymbol('RO');
+        $this->setSymbol('.ر.ع');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class OMR extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(3);
-        $this->setDefaultNumberOfDecimals(3);
+        $this->setSubunitLevel(3);
     }
 }

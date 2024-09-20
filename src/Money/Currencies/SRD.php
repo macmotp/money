@@ -11,15 +11,15 @@ final class SRD extends AbstractCurrency implements Currency
     {
         $this->setName('Surinamese Dollar');
         $this->setCode(Currency::SRD);
-        $this->setSymbol('$');
+        $this->setSymbol('Sur$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

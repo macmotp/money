@@ -17,9 +17,9 @@ final class BOB extends AbstractCurrency implements Currency
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

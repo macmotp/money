@@ -11,15 +11,15 @@ final class SOS extends AbstractCurrency implements Currency
     {
         $this->setName('Somali Shilling');
         $this->setCode(Currency::SOS);
-        $this->setSymbol('Shs');
+        $this->setSymbol('Sh.So.');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
-        $this->setShowSpace(false);
+        $this->setShowSpace(true);
         $this->setShowSymbolOrCodeOnLeft(false);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

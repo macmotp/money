@@ -11,15 +11,15 @@ final class TTD extends AbstractCurrency implements Currency
     {
         $this->setName('Trinidad and Tobago Dollar');
         $this->setCode(Currency::TTD);
-        $this->setSymbol('$');
+        $this->setSymbol('TT$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

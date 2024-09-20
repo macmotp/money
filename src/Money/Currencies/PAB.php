@@ -11,7 +11,7 @@ final class PAB extends AbstractCurrency implements Currency
     {
         $this->setName('Panamanian Balboa');
         $this->setCode(Currency::PAB);
-        $this->setSymbol('B/');
+        $this->setSymbol('B/.');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class PAB extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

@@ -18,8 +18,8 @@ final class RUB extends AbstractCurrency implements Currency
         $this->setShowSymbolOrCodeOnLeft(false);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator(' ');
+        $this->setThousandsSeparator('.');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

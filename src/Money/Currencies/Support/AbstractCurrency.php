@@ -19,7 +19,7 @@ abstract class AbstractCurrency implements Currency
     private bool $showDecimals;
     private string $decimalSeparator;
     private string $thousandsSeparator;
-    private int $defaultNumberOfDecimals;
+    private int $subunitLevel;
     private int $numberOfDecimals;
 
     /**
@@ -179,15 +179,15 @@ abstract class AbstractCurrency implements Currency
     }
 
     /**
-     * Set Default Number of Decimals
+     * Set Subunit level
      *
-     * @param int $defaultNumberOfDecimals
+     * @param int $subunitLevel
      *
      * @return Currency
      */
-    public function setDefaultNumberOfDecimals(int $defaultNumberOfDecimals): Currency
+    public function setSubunitLevel(int $subunitLevel): Currency
     {
-        $this->defaultNumberOfDecimals = $defaultNumberOfDecimals;
+        $this->subunitLevel = $subunitLevel;
 
         return $this;
     }
@@ -293,13 +293,13 @@ abstract class AbstractCurrency implements Currency
     }
 
     /**
-     * Get the default number of Decimals
+     * Get the Subunit Level
      *
      * @return int
      */
-    public function getDefaultNumberOfDecimals(): int
+    public function getSubunitLevel(): int
     {
-        return $this->defaultNumberOfDecimals;
+        return $this->subunitLevel;
     }
 
     /**

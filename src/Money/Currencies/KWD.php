@@ -11,15 +11,15 @@ final class KWD extends AbstractCurrency implements Currency
     {
         $this->setName('Kuwaiti Dinar');
         $this->setCode(Currency::KWD);
-        $this->setSymbol('KD');
+        $this->setSymbol('د.ك');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(3);
-        $this->setDefaultNumberOfDecimals(3);
+        $this->setSubunitLevel(3);
     }
 }

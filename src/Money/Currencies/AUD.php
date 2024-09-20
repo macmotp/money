@@ -14,12 +14,12 @@ final class AUD extends AbstractCurrency implements Currency
         $this->setSymbol('A$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
-        $this->setShowSpace(true);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSpace(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

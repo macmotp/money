@@ -11,15 +11,15 @@ final class MKD extends AbstractCurrency implements Currency
     {
         $this->setName('Macedonian Denar');
         $this->setCode(Currency::MKD);
-        $this->setSymbol('DEN');
+        $this->setSymbol('ден');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(true);
         $this->setShowSymbolOrCodeOnLeft(false);
-        $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setShowDecimals(false);
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

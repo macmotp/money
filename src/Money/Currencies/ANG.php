@@ -11,7 +11,7 @@ final class ANG extends AbstractCurrency implements Currency
     {
         $this->setName('Netherlands Antillean Guilder');
         $this->setCode(Currency::ANG);
-        $this->setSymbol('ƒ');
+        $this->setSymbol('NAƒ');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class ANG extends AbstractCurrency implements Currency
         $this->setDecimalSeparator(',');
         $this->setThousandsSeparator('.');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

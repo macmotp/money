@@ -11,7 +11,7 @@ final class SBD extends AbstractCurrency implements Currency
     {
         $this->setName('Solomon Islands Dollar');
         $this->setCode(Currency::SBD);
-        $this->setSymbol('$');
+        $this->setSymbol('SI$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class SBD extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

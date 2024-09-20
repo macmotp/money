@@ -11,15 +11,15 @@ final class CLP extends AbstractCurrency implements Currency
     {
         $this->setName('Chilean Peso');
         $this->setCode(Currency::CLP);
-        $this->setSymbol('Ch$');
+        $this->setSymbol('$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
-        $this->setShowSpace(true);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSpace(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(false);
         $this->setDecimalSeparator(',');
         $this->setThousandsSeparator('.');
         $this->setNumberOfDecimals(0);
-        $this->setDefaultNumberOfDecimals(0);
+        $this->setSubunitLevel(0);
     }
 }

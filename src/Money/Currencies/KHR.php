@@ -17,9 +17,9 @@ final class KHR extends AbstractCurrency implements Currency
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(false);
         $this->setShowDecimals(false);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
-        $this->setNumberOfDecimals(0);
-        $this->setDefaultNumberOfDecimals(0);
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
+        $this->setNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

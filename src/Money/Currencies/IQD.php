@@ -11,15 +11,15 @@ final class IQD extends AbstractCurrency implements Currency
     {
         $this->setName('Iraqi Dinar');
         $this->setCode(Currency::IQD);
-        $this->setSymbol('ID');
+        $this->setSymbol('ع.د');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
-        $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setShowSymbolOrCodeOnLeft(true);
+        $this->setShowDecimals(false);
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(3);
-        $this->setDefaultNumberOfDecimals(3);
+        $this->setSubunitLevel(3);
     }
 }

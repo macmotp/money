@@ -11,15 +11,15 @@ final class KES extends AbstractCurrency implements Currency
     {
         $this->setName('Kenyan Shilling');
         $this->setCode(Currency::KES);
-        $this->setSymbol('Shs');
+        $this->setSymbol('Sh');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
-        $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setShowSymbolOrCodeOnLeft(true);
+        $this->setShowDecimals(false);
+        $this->setDecimalSeparator('/');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

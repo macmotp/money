@@ -14,12 +14,12 @@ final class STN extends AbstractCurrency implements Currency
         $this->setSymbol('Db');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
-        $this->setShowSpace(false);
+        $this->setShowSpace(true);
         $this->setShowSymbolOrCodeOnLeft(false);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

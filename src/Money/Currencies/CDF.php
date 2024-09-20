@@ -16,10 +16,10 @@ final class CDF extends AbstractCurrency implements Currency
         $this->setShowCode(false);
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(true);
-        $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setShowDecimals(false);
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

@@ -20,6 +20,6 @@ final class PYG extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(0);
-        $this->setDefaultNumberOfDecimals(0);
+        $this->setSubunitLevel(0);
     }
 }

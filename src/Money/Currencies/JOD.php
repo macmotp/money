@@ -9,17 +9,17 @@ final class JOD extends AbstractCurrency implements Currency
 {
     public function __construct()
     {
-        $this->setName('Jamaican Dinar');
+        $this->setName('Jordanian Dinar');
         $this->setCode(Currency::JOD);
-        $this->setSymbol('JD');
+        $this->setSymbol('د.أ');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(3);
-        $this->setDefaultNumberOfDecimals(3);
+        $this->setSubunitLevel(3);
     }
 }

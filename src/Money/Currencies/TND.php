@@ -11,15 +11,15 @@ final class TND extends AbstractCurrency implements Currency
     {
         $this->setName('Tunisian Dinar');
         $this->setCode(Currency::TND);
-        $this->setSymbol('DT');
+        $this->setSymbol('د.ت');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(3);
-        $this->setDefaultNumberOfDecimals(3);
+        $this->setSubunitLevel(3);
     }
 }

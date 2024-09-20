@@ -11,15 +11,15 @@ final class BZD extends AbstractCurrency implements Currency
     {
         $this->setName('Belize Dollar');
         $this->setCode(Currency::BZD);
-        $this->setSymbol('$');
+        $this->setSymbol('BZ$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

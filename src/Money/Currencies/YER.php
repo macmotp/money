@@ -11,15 +11,15 @@ final class YER extends AbstractCurrency implements Currency
     {
         $this->setName('Yemeni Rial');
         $this->setCode(Currency::YER);
-        $this->setSymbol('Rls');
+        $this->setSymbol('﷼');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

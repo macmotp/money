@@ -11,7 +11,7 @@ final class BSD extends AbstractCurrency implements Currency
     {
         $this->setName('Bahamian Dollar');
         $this->setCode(Currency::BSD);
-        $this->setSymbol('$');
+        $this->setSymbol('B$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class BSD extends AbstractCurrency implements Currency
         $this->setDecimalSeparator(',');
         $this->setThousandsSeparator('.');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

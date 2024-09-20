@@ -11,15 +11,15 @@ final class NPR extends AbstractCurrency implements Currency
     {
         $this->setName('Nepalese Rupee');
         $this->setCode(Currency::NPR);
-        $this->setSymbol('Rs');
+        $this->setSymbol('रु.');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
-        $this->setShowSpace(false);
+        $this->setShowSpace(true);
         $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

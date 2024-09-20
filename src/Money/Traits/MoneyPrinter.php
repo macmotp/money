@@ -16,7 +16,8 @@ trait MoneyPrinter
     {
         return [
             'amount' => $this->getAmount(),
-            'currency' => $this->getCurrencyCode(),
+            'currency_code' => $this->getCurrencyCode(),
+            'currency_symbol' => $this->getCurrencySymbol(),
         ];
     }
 

@@ -93,7 +93,7 @@ class Money
      */
     public function getAmountForHumans(): float
     {
-        return $this->amount / pow(10, $this->getCurrency()->getDefaultNumberOfDecimals());
+        return $this->amount / pow(10, $this->getCurrency()->getSubunitLevel());
     }
 
     /**

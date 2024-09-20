@@ -17,9 +17,9 @@ final class DJF extends AbstractCurrency implements Currency
         $this->setShowSpace(true);
         $this->setShowSymbolOrCodeOnLeft(false);
         $this->setShowDecimals(false);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator(' ');
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(0);
-        $this->setDefaultNumberOfDecimals(0);
+        $this->setSubunitLevel(0);
     }
 }

@@ -11,15 +11,15 @@ final class IRR extends AbstractCurrency implements Currency
     {
         $this->setName('Iranian Rial');
         $this->setCode(Currency::IRR);
-        $this->setSymbol('Rls');
+        $this->setSymbol('﷼');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(false);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(0);
-        $this->setDefaultNumberOfDecimals(0);
+        $this->setSubunitLevel(0);
     }
 }

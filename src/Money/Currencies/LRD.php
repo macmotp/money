@@ -11,15 +11,15 @@ final class LRD extends AbstractCurrency implements Currency
     {
         $this->setName('Liberian Dollar');
         $this->setCode(Currency::LRD);
-        $this->setSymbol('$');
+        $this->setSymbol('L$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(false);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

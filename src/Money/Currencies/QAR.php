@@ -11,7 +11,7 @@ final class QAR extends AbstractCurrency implements Currency
     {
         $this->setName('Qatari Riyal');
         $this->setCode(Currency::QAR);
-        $this->setSymbol('QR');
+        $this->setSymbol('ر.ق');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class QAR extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

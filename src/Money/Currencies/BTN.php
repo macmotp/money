@@ -11,15 +11,15 @@ final class BTN extends AbstractCurrency implements Currency
     {
         $this->setName('Bhutanese Ngultrum');
         $this->setCode(Currency::BTN);
-        $this->setSymbol('Nu');
+        $this->setSymbol('Nu.');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(true);
-        $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setShowDecimals(false);
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

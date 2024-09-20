@@ -14,12 +14,12 @@ final class LBP extends AbstractCurrency implements Currency
         $this->setSymbol('LL');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
-        $this->setShowSpace(false);
-        $this->setShowSymbolOrCodeOnLeft(false);
+        $this->setShowSpace(true);
+        $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(false);
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

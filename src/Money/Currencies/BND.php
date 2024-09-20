@@ -11,15 +11,15 @@ final class BND extends AbstractCurrency implements Currency
     {
         $this->setName('Brunei Dollar');
         $this->setCode(Currency::BND);
-        $this->setSymbol('$');
+        $this->setSymbol('B$');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
         $this->setShowSymbolOrCodeOnLeft(true);
         $this->setShowDecimals(true);
-        $this->setDecimalSeparator(',');
-        $this->setThousandsSeparator('.');
+        $this->setDecimalSeparator('.');
+        $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(2);
-        $this->setDefaultNumberOfDecimals(2);
+        $this->setSubunitLevel(2);
     }
 }

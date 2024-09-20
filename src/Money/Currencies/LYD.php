@@ -11,7 +11,7 @@ final class LYD extends AbstractCurrency implements Currency
     {
         $this->setName('Libyan Dinar');
         $this->setCode(Currency::LYD);
-        $this->setSymbol('LD');
+        $this->setSymbol('ل.د');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class LYD extends AbstractCurrency implements Currency
         $this->setDecimalSeparator('.');
         $this->setThousandsSeparator(',');
         $this->setNumberOfDecimals(3);
-        $this->setDefaultNumberOfDecimals(3);
+        $this->setSubunitLevel(3);
     }
 }

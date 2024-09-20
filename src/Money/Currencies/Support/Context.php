@@ -24,6 +24,7 @@ use Macmotp\Currencies\BND;
 use Macmotp\Currencies\BOB;
 use Macmotp\Currencies\BRL;
 use Macmotp\Currencies\BSD;
+use Macmotp\Currencies\BTC;
 use Macmotp\Currencies\BTN;
 use Macmotp\Currencies\BWP;
 use Macmotp\Currencies\BYN;
@@ -129,7 +130,6 @@ use Macmotp\Currencies\SOS;
 use Macmotp\Currencies\SRD;
 use Macmotp\Currencies\SSP;
 use Macmotp\Currencies\STN;
-use Macmotp\Currencies\SVC;
 use Macmotp\Currencies\SYP;
 use Macmotp\Currencies\SZL;
 use Macmotp\Currencies\THB;
@@ -198,6 +198,7 @@ final class Context
             Currency::BOB => new BOB(),
             Currency::BRL => new BRL(),
             Currency::BSD => new BSD(),
+            Currency::BTC => new BTC(),
             Currency::BTN => new BTN(),
             Currency::BWP => new BWP(),
             Currency::BYN => new BYN(),
@@ -303,7 +304,6 @@ final class Context
             Currency::SRD => new SRD(),
             Currency::SSP => new SSP(),
             Currency::STN => new STN(),
-            Currency::SVC => new SVC(),
             Currency::SYP => new SYP(),
             Currency::SZL => new SZL(),
             Currency::THB => new THB(),
@@ -364,6 +364,7 @@ final class Context
             new BOB(),
             new BRL(),
             new BSD(),
+            new BTC(),
             new BTN(),
             new BWP(),
             new BYN(),
@@ -469,7 +470,6 @@ final class Context
             new SRD(),
             new SSP(),
             new STN(),
-            new SVC(),
             new SYP(),
             new SZL(),
             new THB(),

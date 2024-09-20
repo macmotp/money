@@ -11,7 +11,7 @@ final class BHD extends AbstractCurrency implements Currency
     {
         $this->setName('Bahraini Dinar');
         $this->setCode(Currency::BHD);
-        $this->setSymbol('BD');
+        $this->setSymbol('ب.د');
         $this->setShowSymbol(true);
         $this->setShowCode(false);
         $this->setShowSpace(false);
@@ -20,6 +20,6 @@ final class BHD extends AbstractCurrency implements Currency
         $this->setDecimalSeparator(',');
         $this->setThousandsSeparator('.');
         $this->setNumberOfDecimals(3);
-        $this->setDefaultNumberOfDecimals(3);
+        $this->setSubunitLevel(3);
     }
 }
