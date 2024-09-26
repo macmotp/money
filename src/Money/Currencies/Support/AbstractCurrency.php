@@ -23,6 +23,31 @@ abstract class AbstractCurrency implements Currency
     private int $numberOfDecimals;
 
     /**
+     * Convert the currency into array
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->getName(),
+            'code' => $this->getCode(),
+            'symbol' => $this->getSymbol(),
+            'format' => [
+                'show_symbol' => $this->getShowSymbol(),
+                'show_code' => $this->getShowCode(),
+                'show_space' => $this->getShowSpace(),
+                'show_symbol_or_code_on_left' => $this->getShowSymbolOrCodeOnLeft(),
+                'show_decimals' => $this->getShowDecimals(),
+                'decimal_separator' => $this->getDecimalSeparator(),
+                'thousands_separator' => $this->getThousandsSeparator(),
+                'subunit_level' => $this->getSubunitLevel(),
+                'number_of_decimals' => $this->getNumberOfDecimals(),
+            ],
+        ];
+    }
+
+    /**
      * Set Name
      *
      * @param string $name

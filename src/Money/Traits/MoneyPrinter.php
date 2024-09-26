@@ -10,14 +10,13 @@ trait MoneyPrinter
      * Transform to Array
      *
      * Example: $money = new Money(123456, 'USD');
-     * echo($money->toArray()); // Output: ['amount' => 123456, 'currency_code' => 'USD']
+     * echo($money->toArray());
      */
     public function toArray(): array
     {
         return [
             'amount' => $this->getAmount(),
-            'currency_code' => $this->getCurrencyCode(),
-            'currency_symbol' => $this->getCurrencySymbol(),
+            'currency' => $this->getCurrency()->toArray(),
         ];
     }
 

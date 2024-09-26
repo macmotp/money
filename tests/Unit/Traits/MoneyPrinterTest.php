@@ -20,10 +20,25 @@ class MoneyPrinterTest extends TestCase
     public function testMoneyToArrayFunction(): void
     {
         $money = Money::make(10000, Currency::USD);
-        $array = $money->toArray();
-
-        $this->assertEquals(10000, $array['amount']);
-        $this->assertEquals(Currency::USD, $array['currency_code']);
+        $this->assertEquals([
+            'amount' => 10000,
+            'currency' => [
+                'name' => 'United States Dollar',
+                'code' => 'USD',
+                'symbol' => '$',
+                'format' => [
+                    'show_symbol' => true,
+                    'show_code' => false,
+                    'show_space' => false,
+                    'show_symbol_or_code_on_left' => true,
+                    'show_decimals' => true,
+                    'decimal_separator' => '.',
+                    'thousands_separator' => ',',
+                    'subunit_level' => 2,
+                    'number_of_decimals' => 2,
+                ],
+            ],
+        ], $money->toArray());
     }
 
     /**

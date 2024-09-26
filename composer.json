@@ -1,10 +1,11 @@
 {
     "name": "macmotp/money",
-    "version": "v0.4.1",
-    "description": "Light PHP Library to handle Money",
+    "version": "v0.4.2",
+    "description": "Light PHP Library to handle Money and Currencies",
     "keywords": [
         "macmotp",
         "money",
+        "currencies",
         "php"
     ],
     "homepage": "https://github.com/macmotp/money",

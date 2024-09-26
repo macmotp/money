@@ -362,4 +362,11 @@ interface Currency
      * @return int
      */
     public function getNumberOfDecimals(): int;
+
+    /**
+     * Convert the currency into array
+     *
+     * @return array
+     */
+    public function toArray(): array;
 }

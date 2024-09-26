@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/macmotp/money.svg)](https://packagist.org/packages/macmotp/money)
 [![Total Downloads](https://img.shields.io/packagist/dt/macmotp/money.svg)](https://packagist.org/packages/macmotp/money)
 
-**Library to Handle Money in PHP, simple and light**
+**Library to Handle Money and Currencies in PHP, simple and light**
 
 Useful for any ecommerce, fintech, or any app that requires 💰.
 
@@ -84,6 +84,7 @@ echo $money->withCode()
 
 #### List of methods for printing
 - `toArray()`: convert the object into array;
+- `getCurrency()->toArray()`: convert the currency object into array;
 - `withSymbol()`: print the symbol and not the currency code;
 - `withoutSymbol()`: do not print neither symbol nor currency code;
 - `withCode()`: print the currency code and not the code;
