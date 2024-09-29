@@ -2,7 +2,6 @@
 
 namespace Macmotp\Money\Tests\Unit\Traits;
 
-use Macmotp\Currency;
 use Macmotp\Exceptions\InvalidCurrencyCodeException;
 use Macmotp\Exceptions\MoneyDivisionByZero;
 use Macmotp\Exceptions\MoneyOperationWithDifferentCurrencies;
