@@ -24,6 +24,6 @@ All notable changes to `macmotp/money` will be documented in this file
 
 - add more currencies
 
-## v0.4.2 - 2024-09-26
+## v1.0.0 - 2024-09-29
 
-- convert currency to array
+- use new macmotp/currencies package

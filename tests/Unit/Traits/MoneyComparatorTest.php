@@ -3,7 +3,9 @@
 namespace Macmotp\Money\Tests\Unit\Traits;
 
 use Macmotp\Currency;
+use Macmotp\Exceptions\InvalidCurrencyCodeException;
 use Macmotp\Money;
+use Macmotp\Support\CurrencyCode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,32 +16,41 @@ use PHPUnit\Framework\TestCase;
  */
 class MoneyComparatorTest extends TestCase
 {
+    /**
+     * @throws InvalidCurrencyCodeException
+     */
     public function testIsSameCurrencyComparison()
     {
-        $moneyOne = new Money(100, Currency::USD);
-        $moneyTwo = new Money(100, Currency::USD);
-        $moneyThree = new Money(100, Currency::EUR);
+        $moneyOne = new Money(100, CurrencyCode::USD);
+        $moneyTwo = new Money(100, CurrencyCode::USD);
+        $moneyThree = new Money(100, CurrencyCode::EUR);
 
         $this->assertTrue($moneyOne->isSameCurrency($moneyTwo));
         $this->assertFalse($moneyOne->isSameCurrency($moneyThree));
         $this->assertFalse($moneyOne->isSameCurrency($moneyTwo, $moneyThree));
     }
 
+    /**
+     * @throws InvalidCurrencyCodeException
+     */
     public function testIsEqualToComparison()
     {
-        $moneyOne = new Money(100, Currency::USD);
-        $moneyTwo = new Money(100, Currency::USD);
-        $moneyThree = new Money(100, Currency::EUR);
+        $moneyOne = new Money(100, CurrencyCode::USD);
+        $moneyTwo = new Money(100, CurrencyCode::USD);
+        $moneyThree = new Money(100, CurrencyCode::EUR);
 
         $this->assertTrue($moneyOne->isEqualTo($moneyTwo));
         $this->assertFalse($moneyOne->isEqualTo($moneyThree));
     }
 
+    /**
+     * @throws InvalidCurrencyCodeException
+     */
     public function testAmountsComparison()
     {
-        $moneyOne = new Money(100, Currency::USD);
-        $moneyTwo = new Money(200, Currency::USD);
-        $moneyThree = new Money(200, Currency::USD);
+        $moneyOne = new Money(100, CurrencyCode::USD);
+        $moneyTwo = new Money(200, CurrencyCode::USD);
+        $moneyThree = new Money(200, CurrencyCode::USD);
 
         $this->assertTrue($moneyOne->isLessThan($moneyTwo));
         $this->assertFalse($moneyOne->isGreaterThan($moneyTwo));
@@ -49,11 +60,14 @@ class MoneyComparatorTest extends TestCase
         $this->assertTrue($moneyTwo->isGreaterThanOrEqualTo($moneyThree));
     }
 
+    /**
+     * @throws InvalidCurrencyCodeException
+     */
     public function testValueSignComparison()
     {
-        $moneyOne = new Money(100, Currency::USD);
-        $moneyTwo = new Money(-200, Currency::USD);
-        $moneyThree = new Money(0, Currency::USD);
+        $moneyOne = new Money(100, CurrencyCode::USD);
+        $moneyTwo = new Money(-200, CurrencyCode::USD);
+        $moneyThree = new Money(0, CurrencyCode::USD);
 
         $this->assertTrue($moneyOne->isPositive());
         $this->assertTrue($moneyOne->isZeroOrPositive());

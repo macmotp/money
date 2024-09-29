@@ -2,8 +2,9 @@
 
 namespace Macmotp\Money\Tests\Unit;
 
-use Macmotp\Currency;
+use Macmotp\Exceptions\InvalidCurrencyCodeException;
 use Macmotp\Money;
+use Macmotp\Support\CurrencyCode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,15 +19,16 @@ class MoneyTest extends TestCase
      * @dataProvider listConstructors
      *
      * @param $inputAmount
-     * @param string $inputCurrency
+     * @param CurrencyCode $inputCurrency
      * @param int $outputAmount
      * @param string $outputCurrencyCode
      * @param string $outputCurrencySymbol
      * @return void
+     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyConstructor(
         $inputAmount,
-        string $inputCurrency,
+        CurrencyCode $inputCurrency,
         int $outputAmount,
         string $outputCurrencyCode,
         string $outputCurrencySymbol
@@ -40,20 +42,22 @@ class MoneyTest extends TestCase
 
     /**
      * @return void
+     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyGetAmountForHumansFunction(): void
     {
-        $money = Money::make(12345, Currency::USD);
+        $money = Money::make(12345, CurrencyCode::USD);
 
         $this->assertEquals(123.45, $money->getAmountForHumans());
     }
 
     /**
      * @return void
+     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyCloneFunction(): void
     {
-        $money = Money::make(10000, Currency::USD);
+        $money = Money::make(10000, CurrencyCode::USD);
         $clone = $money->clone();
 
         $this->assertEquals($money->getAmount(), $clone->getAmount());
@@ -62,10 +66,11 @@ class MoneyTest extends TestCase
 
     /**
      * @return void
+     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyZeroFunction(): void
     {
-        $money = Money::make(10000, Currency::USD);
+        $money = Money::make(10000, CurrencyCode::USD);
         $zero = $money->zero();
 
         $this->assertEquals(0, $zero->getAmount());
@@ -74,6 +79,7 @@ class MoneyTest extends TestCase
 
     /**
      * @return void
+     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyGetAllCurrenciesFunction(): void
     {
@@ -89,50 +95,50 @@ class MoneyTest extends TestCase
     {
         return [
             // Simple canonical usage
-            [100, Currency::USD, 100, Currency::USD, '$'],
+            [100, CurrencyCode::USD, 100, CurrencyCode::USD->value, '$'],
             // Use string as integer
-            ['12345', Currency::USD, 12345, Currency::USD, '$'],
+            ['12345', CurrencyCode::USD, 12345, CurrencyCode::USD->value, '$'],
             // Rounding numbers
-            [123.45 * 100, Currency::USD, 12345, Currency::USD, '$'],
-            [123.45 * 1000 / 10, Currency::USD, 12345, Currency::USD, '$'],
-            [123.45 / 10 * 1000, Currency::USD, 12345, Currency::USD, '$'],
-            [round(123.45 * 100), Currency::USD, 12345, Currency::USD, '$'],
-            [floor(123.45 * 100), Currency::USD, 12345, Currency::USD, '$'],
-            [ceil(123.45 * 100), Currency::USD, 12345, Currency::USD, '$'],
-            [round(123.45), Currency::USD, 123, Currency::USD, '$'],
-            [floor(123.45), Currency::USD, 123, Currency::USD, '$'],
-            [ceil(123.45), Currency::USD, 124, Currency::USD, '$'],
+            [123.45 * 100, CurrencyCode::USD, 12345, CurrencyCode::USD->value, '$'],
+            [123.45 * 1000 / 10, CurrencyCode::USD, 12345, CurrencyCode::USD->value, '$'],
+            [123.45 / 10 * 1000, CurrencyCode::USD, 12345, CurrencyCode::USD->value, '$'],
+            [round(123.45 * 100), CurrencyCode::USD, 12345, CurrencyCode::USD->value, '$'],
+            [floor(123.45 * 100), CurrencyCode::USD, 12345, CurrencyCode::USD->value, '$'],
+            [ceil(123.45 * 100), CurrencyCode::USD, 12345, CurrencyCode::USD->value, '$'],
+            [round(123.45), CurrencyCode::USD, 123, CurrencyCode::USD->value, '$'],
+            [floor(123.45), CurrencyCode::USD, 123, CurrencyCode::USD->value, '$'],
+            [ceil(123.45), CurrencyCode::USD, 124, CurrencyCode::USD->value, '$'],
             // Real world examples that PHP cannot round properly
-            [143.89 * 100, Currency::USD, 14389, Currency::USD, '$'],
-            [141.73 * 100, Currency::USD, 14173, Currency::USD, '$'],
-            [19214.26 * 100, Currency::USD, 1921426, Currency::USD, '$'],
-            [9074.72 * 100, Currency::USD, 907472, Currency::USD, '$'],
-            [8389.97 * 100, Currency::USD, 838997, Currency::USD, '$'],
-            [16.33 * 100, Currency::USD, 1633, Currency::USD, '$'],
-            [522.18 * 100, Currency::USD, 52218, Currency::USD, '$'],
-            [1247.34 * 100, Currency::USD, 124734, Currency::USD, '$'],
-            [160.98 * 100, Currency::USD, 16098, Currency::USD, '$'],
-            [151.45 * 100, Currency::USD, 15145, Currency::USD, '$'],
-            [650.67 * 100, Currency::USD, 65067, Currency::USD, '$'],
-            [279.46 * 100, Currency::USD, 27946, Currency::USD, '$'],
-            [9.62 * 100, Currency::USD, 962, Currency::USD, '$'],
-            [1121.34 * 100, Currency::USD, 112134, Currency::USD, '$'],
-            [148.14 * 100, Currency::USD, 14814, Currency::USD, '$'],
-            [4189.23 * 100, Currency::USD, 418923, Currency::USD, '$'],
-            [150.39 * 100, Currency::USD, 15039, Currency::USD, '$'],
-            [129.98 * 100, Currency::USD, 12998, Currency::USD, '$'],
-            [140.17 * 100, Currency::USD, 14017, Currency::USD, '$'],
-            [140.2 * 100, Currency::USD, 14020, Currency::USD, '$'],
-            [79.99 * 100, Currency::USD, 7999, Currency::USD, '$'],
-            [70.1 * 100, Currency::USD, 7010, Currency::USD, '$'],
-            [74.6 * 100, Currency::USD, 7460, Currency::USD, '$'],
-            [71.24 * 100, Currency::USD, 7124, Currency::USD, '$'],
-            [2.53 * 100, Currency::USD, 253, Currency::USD, '$'],
-            [68.74 * 100, Currency::USD, 6874, Currency::USD, '$'],
-            [270.9 * 100, Currency::USD, 27090, Currency::USD, '$'],
-            [65.82 * 100, Currency::USD, 6582, Currency::USD, '$'],
-            [19.4 * 100, Currency::USD, 1940, Currency::USD, '$'],
-            [19.99 * 100, Currency::USD, 1999, Currency::USD, '$'],
+            [143.89 * 100, CurrencyCode::USD, 14389, CurrencyCode::USD->value, '$'],
+            [141.73 * 100, CurrencyCode::USD, 14173, CurrencyCode::USD->value, '$'],
+            [19214.26 * 100, CurrencyCode::USD, 1921426, CurrencyCode::USD->value, '$'],
+            [9074.72 * 100, CurrencyCode::USD, 907472, CurrencyCode::USD->value, '$'],
+            [8389.97 * 100, CurrencyCode::USD, 838997, CurrencyCode::USD->value, '$'],
+            [16.33 * 100, CurrencyCode::USD, 1633, CurrencyCode::USD->value, '$'],
+            [522.18 * 100, CurrencyCode::USD, 52218, CurrencyCode::USD->value, '$'],
+            [1247.34 * 100, CurrencyCode::USD, 124734, CurrencyCode::USD->value, '$'],
+            [160.98 * 100, CurrencyCode::USD, 16098, CurrencyCode::USD->value, '$'],
+            [151.45 * 100, CurrencyCode::USD, 15145, CurrencyCode::USD->value, '$'],
+            [650.67 * 100, CurrencyCode::USD, 65067, CurrencyCode::USD->value, '$'],
+            [279.46 * 100, CurrencyCode::USD, 27946, CurrencyCode::USD->value, '$'],
+            [9.62 * 100, CurrencyCode::USD, 962, CurrencyCode::USD->value, '$'],
+            [1121.34 * 100, CurrencyCode::USD, 112134, CurrencyCode::USD->value, '$'],
+            [148.14 * 100, CurrencyCode::USD, 14814, CurrencyCode::USD->value, '$'],
+            [4189.23 * 100, CurrencyCode::USD, 418923, CurrencyCode::USD->value, '$'],
+            [150.39 * 100, CurrencyCode::USD, 15039, CurrencyCode::USD->value, '$'],
+            [129.98 * 100, CurrencyCode::USD, 12998, CurrencyCode::USD->value, '$'],
+            [140.17 * 100, CurrencyCode::USD, 14017, CurrencyCode::USD->value, '$'],
+            [140.2 * 100, CurrencyCode::USD, 14020, CurrencyCode::USD->value, '$'],
+            [79.99 * 100, CurrencyCode::USD, 7999, CurrencyCode::USD->value, '$'],
+            [70.1 * 100, CurrencyCode::USD, 7010, CurrencyCode::USD->value, '$'],
+            [74.6 * 100, CurrencyCode::USD, 7460, CurrencyCode::USD->value, '$'],
+            [71.24 * 100, CurrencyCode::USD, 7124, CurrencyCode::USD->value, '$'],
+            [2.53 * 100, CurrencyCode::USD, 253, CurrencyCode::USD->value, '$'],
+            [68.74 * 100, CurrencyCode::USD, 6874, CurrencyCode::USD->value, '$'],
+            [270.9 * 100, CurrencyCode::USD, 27090, CurrencyCode::USD->value, '$'],
+            [65.82 * 100, CurrencyCode::USD, 6582, CurrencyCode::USD->value, '$'],
+            [19.4 * 100, CurrencyCode::USD, 1940, CurrencyCode::USD->value, '$'],
+            [19.99 * 100, CurrencyCode::USD, 1999, CurrencyCode::USD->value, '$'],
         ];
     }
 }

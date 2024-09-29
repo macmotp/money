@@ -1,6 +1,6 @@
 {
     "name": "macmotp/money",
-    "version": "v0.4.2",
+    "version": "v1.0.0",
     "description": "Light PHP Library to handle Money and Currencies",
     "keywords": [
         "macmotp",
@@ -20,7 +20,8 @@
     ],
     "require": {
         "php": ">=8.2",
-        "illuminate/collections": ">=10.0"
+        "illuminate/collections": ">=10.0",
+        "macmotp/currencies": "^0.1.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.21",

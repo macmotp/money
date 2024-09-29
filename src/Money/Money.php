@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Macmotp;
 
 use Illuminate\Support\Collection;
-use Macmotp\Currencies\Support\Context;
+use Macmotp\Exceptions\InvalidCurrencyCodeException;
+use Macmotp\Support\CurrencyCode;
 use Macmotp\Traits\MoneyAggregator;
 use Macmotp\Traits\MoneyCalculator;
 use Macmotp\Traits\MoneyComparator;
@@ -35,23 +36,25 @@ class Money
      * -> see MoneyTest -> Real world examples that PHP cannot round properly
      *
      * @param $amount
-     * @param string $currency
+     * @param CurrencyCode|string $currency
+     * @throws InvalidCurrencyCodeException
      */
-    public function __construct($amount, string $currency)
+    public function __construct($amount, CurrencyCode|string $currency)
     {
         $this->amount = (int) round((float)$amount ?? 0);
-        $this->currency = Context::getCurrencyFromCode(strtoupper($currency));
+        $this->currency = new Currency($currency);
     }
 
     /**
      * Usage: Money::make(1000, 'USD');
      *
      * @param $amount
-     * @param string $currency
+     * @param CurrencyCode|string $currency
      *
      * @return Money
+     * @throws InvalidCurrencyCodeException
      */
-    public static function make($amount, string $currency): self
+    public static function make($amount, CurrencyCode|string $currency): self
     {
         return new self($amount, $currency);
     }
@@ -93,7 +96,7 @@ class Money
      */
     public function getAmountForHumans(): float
     {
-        return $this->amount / pow(10, $this->getCurrency()->getSubunitLevel());
+        return $this->amount / pow(10, $this->getCurrency()->getFormat()->getSubunitLevel());
     }
 
     /**
@@ -113,6 +116,7 @@ class Money
      * $clone = $money->clone(); // $clone = new Money(123456, 'USD');
      *
      * @return Money
+     * @throws InvalidCurrencyCodeException
      */
     public function clone(): self
     {
@@ -126,6 +130,7 @@ class Money
      * $zero = $money->zero(); // $zero = new Money(0, 'USD');
      *
      * @return Money
+     * @throws InvalidCurrencyCodeException
      */
     public function zero(): self
     {
@@ -136,9 +141,10 @@ class Money
      * Get Collection with All the Currencies
      *
      * @return Collection
+     * @throws InvalidCurrencyCodeException
      */
     public static function getAllCurrencies(): Collection
     {
-        return Context::getAll();
+        return Currency::all();
     }
 }
