@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/macmotp/money.svg)](https://packagist.org/packages/macmotp/money)
 [![Total Downloads](https://img.shields.io/packagist/dt/macmotp/money.svg)](https://packagist.org/packages/macmotp/money)
 
-**Library to Handle Money in PHP, simple and light**
+**Library to Handle Money and Currencies in PHP, simple and light**
 
 Useful for any ecommerce, fintech, or any app that requires 💰.
 
@@ -23,24 +23,27 @@ composer require macmotp/money
 ### Create Money objects
 ``` php
 use Macmotp\Money;
-use Macmotp\Currency;
+use Macmotp\Support\CurrencyCode;
 
 // Amounts are always in cents (or lowest minor unit)!
 $amount = 100;
 
 // All Currencies adopt ISO 4217 standard
-$currency = Currency::USD;
+$currency = CurrencyCode::USD;
 
 // Create the object
 $money = new Money($amount, $currency);
-// or Money::make($amount, $currency)
+
+// Alternative methods
+$money = new Money($amount, 'USD');
+$money = Money::make($amount, $currency);
 
 echo $money->print();
 
 // (string) '1.00$'
 
 // Another example with Vietnamese Dong
-$money = new Money(10000, Currency::VND);
+$money = new Money(10000, CurrencyCode::VND);
 
 echo $money->print();
 
@@ -62,9 +65,9 @@ _For example: if you want to get the currency code, you can run `$money->getCurr
 ### Print Money (on the screen, not for real)
 ``` php
 use Macmotp\Money;
-use Macmotp\Currency;
+use Macmotp\Support\CurrencyCode;
 
-$money = new Money(12345, Currency::USD);
+$money = new Money(12345, CurrencyCode::USD);
 
 // Default format based on each currency
 
@@ -84,6 +87,7 @@ echo $money->withCode()
 
 #### List of methods for printing
 - `toArray()`: convert the object into array;
+- `getCurrency()->toArray()`: convert the currency object into array;
 - `withSymbol()`: print the symbol and not the currency code;
 - `withoutSymbol()`: do not print neither symbol nor currency code;
 - `withCode()`: print the currency code and not the code;
@@ -102,14 +106,14 @@ echo $money->withCode()
 ### Calculate with Money
 ``` php
 use Macmotp\Money;
-use Macmotp\Currency;
+use Macmotp\Support\CurrencyCode;
 
-$moneyOne = new Money(200, Currency::USD);
-$moneyTwo = new Money(300, Currency::USD);
+$moneyOne = new Money(200, CurrencyCode::USD);
+$moneyTwo = new Money(300, CurrencyCode::USD);
 
 echo $moneyOne->add($moneyTwo);
 
-// new Money(500, Currency::USD)
+// new Money(500, CurrencyCode::USD)
 ```
 #### List of calculation methods
 - `add(Money $money)`;
@@ -122,19 +126,19 @@ echo $moneyOne->add($moneyTwo);
 ### Aggregate Money
 ``` php
 use Macmotp\Money;
-use Macmotp\Currency;
+use Macmotp\Support\CurrencyCode;
 
-$moneyOne = new Money(200, Currency::USD);
-$moneyTwo = new Money(300, Currency::USD);
-$moneyThree = new Money(400, Currency::USD);
+$moneyOne = new Money(200, CurrencyCode::USD);
+$moneyTwo = new Money(300, CurrencyCode::USD);
+$moneyThree = new Money(400, CurrencyCode::USD);
 
 echo Money::max($moneyOne, $moneyTwo, $moneyThree);
 
-// new Money(400, Currency::USD)
+// new Money(400, CurrencyCode::USD)
 
 echo Money::avg($moneyOne, $moneyTwo, $moneyThree);
 
-// new Money(300, Currency::USD)
+// new Money(300, CurrencyCode::USD)
 ```
 #### List of aggregation methods
 - `min(Money ...$money)`: return the minimum amount;
@@ -146,10 +150,10 @@ echo Money::avg($moneyOne, $moneyTwo, $moneyThree);
 ### Compare Money
 ``` php
 use Macmotp\Money;
-use Macmotp\Currency;
+use Macmotp\Support\CurrencyCode;
 
-$moneyOne = new Money(200, Currency::USD);
-$moneyTwo = new Money(300, Currency::USD);
+$moneyOne = new Money(200, CurrencyCode::USD);
+$moneyTwo = new Money(300, CurrencyCode::USD);
 
 echo $moneyOne->isLessThan($moneyTwo);
 
