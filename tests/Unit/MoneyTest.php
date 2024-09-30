@@ -2,9 +2,8 @@
 
 namespace Macmotp\Money\Tests\Unit;
 
-use Macmotp\Exceptions\InvalidCurrencyCodeException;
+use Macmotp\Currencies\Support\CurrencyCode;
 use Macmotp\Money;
-use Macmotp\Support\CurrencyCode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -24,7 +23,6 @@ class MoneyTest extends TestCase
      * @param string $outputCurrencyCode
      * @param string $outputCurrencySymbol
      * @return void
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyConstructor(
         $inputAmount,
@@ -42,7 +40,6 @@ class MoneyTest extends TestCase
 
     /**
      * @return void
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyGetAmountForHumansFunction(): void
     {
@@ -53,7 +50,6 @@ class MoneyTest extends TestCase
 
     /**
      * @return void
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyCloneFunction(): void
     {
@@ -66,7 +62,6 @@ class MoneyTest extends TestCase
 
     /**
      * @return void
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyZeroFunction(): void
     {
@@ -79,7 +74,6 @@ class MoneyTest extends TestCase
 
     /**
      * @return void
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyGetAllCurrenciesFunction(): void
     {

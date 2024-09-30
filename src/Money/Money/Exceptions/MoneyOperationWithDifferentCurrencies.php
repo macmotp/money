@@ -1,6 +1,6 @@
 <?php
 
-namespace Macmotp\Exceptions;
+namespace Macmotp\Money\Exceptions;
 
 use Exception;
 

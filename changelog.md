@@ -27,3 +27,7 @@ All notable changes to `macmotp/money` will be documented in this file
 ## v1.0.0 - 2024-09-29
 
 - use new macmotp/currencies package
+
+## v1.0.1 - 2024-09-30
+
+- change namespace to be consistent with other packages

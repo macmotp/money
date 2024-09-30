@@ -1,10 +1,10 @@
 <?php
 
-namespace Macmotp\Traits;
+namespace Macmotp\Money\Traits;
 
-use Macmotp\Exceptions\MoneyDivisionByZero;
-use Macmotp\Exceptions\MoneyOperationWithDifferentCurrencies;
 use Macmotp\Money;
+use Macmotp\Money\Exceptions\MoneyDivisionByZero;
+use Macmotp\Money\Exceptions\MoneyOperationWithDifferentCurrencies;
 
 trait MoneyCalculator
 {

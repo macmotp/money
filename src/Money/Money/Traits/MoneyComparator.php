@@ -1,6 +1,6 @@
 <?php
 
-namespace Macmotp\Traits;
+namespace Macmotp\Money\Traits;
 
 use Illuminate\Support\Collection;
 use Macmotp\Money;

@@ -2,11 +2,10 @@
 
 namespace Macmotp\Money\Tests\Unit\Traits;
 
-use Macmotp\Exceptions\InvalidCurrencyCodeException;
-use Macmotp\Exceptions\MoneyDivisionByZero;
-use Macmotp\Exceptions\MoneyOperationWithDifferentCurrencies;
+use Macmotp\Currencies\Support\CurrencyCode;
 use Macmotp\Money;
-use Macmotp\Support\CurrencyCode;
+use Macmotp\Money\Exceptions\MoneyDivisionByZero;
+use Macmotp\Money\Exceptions\MoneyOperationWithDifferentCurrencies;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,7 +17,6 @@ use PHPUnit\Framework\TestCase;
 class MoneyCalculatorTest extends TestCase
 {
     /**
-     * @throws InvalidCurrencyCodeException
      * @throws MoneyOperationWithDifferentCurrencies
      */
     public function testMoneyAddOperation()
@@ -31,7 +29,6 @@ class MoneyCalculatorTest extends TestCase
 
     /**
      * @throws MoneyOperationWithDifferentCurrencies
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneySubtractOperation()
     {
@@ -42,9 +39,6 @@ class MoneyCalculatorTest extends TestCase
         $this->assertEquals(-50, $subtract->subtract($money)->getAmount());
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testAddMoneyOperationWithDifferentCurrenciesException()
     {
         $this->expectException(MoneyOperationWithDifferentCurrencies::class);
@@ -54,9 +48,6 @@ class MoneyCalculatorTest extends TestCase
         $money->add($sum);
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testSubtractMoneyOperationWithDifferentCurrenciesException()
     {
         $this->expectException(MoneyOperationWithDifferentCurrencies::class);
@@ -66,9 +57,6 @@ class MoneyCalculatorTest extends TestCase
         $money->subtract($subtract);
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyMultiplyOperation()
     {
         $money = new Money(100, CurrencyCode::USD);
@@ -84,7 +72,6 @@ class MoneyCalculatorTest extends TestCase
 
     /**
      * @throws MoneyDivisionByZero
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyDivideOperation()
     {
@@ -97,9 +84,6 @@ class MoneyCalculatorTest extends TestCase
         $this->assertEquals(51, $money->divide($factor, 'ceil')->getAmount());
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyDivideByZeroException()
     {
         $this->expectException(MoneyDivisionByZero::class);
@@ -109,9 +93,6 @@ class MoneyCalculatorTest extends TestCase
         $money->divide($factor);
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyPercentageOperation()
     {
         $money = new Money(100, CurrencyCode::USD);
@@ -121,9 +102,6 @@ class MoneyCalculatorTest extends TestCase
         $this->assertEquals(45, $money->inPercentage(0.444, 'ceil')->getAmount());
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyAbsoluteOperation()
     {
         $money = new Money(100, CurrencyCode::USD);

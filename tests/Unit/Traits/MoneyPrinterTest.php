@@ -2,9 +2,8 @@
 
 namespace Macmotp\Money\Tests\Unit\Traits;
 
-use Macmotp\Exceptions\InvalidCurrencyCodeException;
+use Macmotp\Currencies\Support\CurrencyCode;
 use Macmotp\Money;
-use Macmotp\Support\CurrencyCode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -15,10 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class MoneyPrinterTest extends TestCase
 {
-    /**
-     * @return void
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyToArrayFunction(): void
     {
         $money = Money::make(10000, CurrencyCode::USD);
@@ -51,7 +46,6 @@ class MoneyPrinterTest extends TestCase
      * @param CurrencyCode $currency
      * @param string $output
      * @return void
-     * @throws InvalidCurrencyCodeException
      */
     public function testMoneyDefaultPrintFunction(int $amount, CurrencyCode $currency, string $output): void
     {
@@ -60,10 +54,6 @@ class MoneyPrinterTest extends TestCase
         $this->assertEquals($output, $money->print());
     }
 
-    /**
-     * @return void
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyCustomPrintFunction(): void
     {
         $this->assertEquals(
