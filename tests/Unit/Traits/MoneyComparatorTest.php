@@ -2,9 +2,8 @@
 
 namespace Macmotp\Money\Tests\Unit\Traits;
 
-use Macmotp\Exceptions\InvalidCurrencyCodeException;
+use Macmotp\Currencies\Support\CurrencyCode;
 use Macmotp\Money;
-use Macmotp\Support\CurrencyCode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -15,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class MoneyComparatorTest extends TestCase
 {
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testIsSameCurrencyComparison()
     {
         $moneyOne = new Money(100, CurrencyCode::USD);
@@ -29,9 +25,6 @@ class MoneyComparatorTest extends TestCase
         $this->assertFalse($moneyOne->isSameCurrency($moneyTwo, $moneyThree));
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testIsEqualToComparison()
     {
         $moneyOne = new Money(100, CurrencyCode::USD);
@@ -42,9 +35,6 @@ class MoneyComparatorTest extends TestCase
         $this->assertFalse($moneyOne->isEqualTo($moneyThree));
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testAmountsComparison()
     {
         $moneyOne = new Money(100, CurrencyCode::USD);
@@ -59,9 +49,6 @@ class MoneyComparatorTest extends TestCase
         $this->assertTrue($moneyTwo->isGreaterThanOrEqualTo($moneyThree));
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testValueSignComparison()
     {
         $moneyOne = new Money(100, CurrencyCode::USD);

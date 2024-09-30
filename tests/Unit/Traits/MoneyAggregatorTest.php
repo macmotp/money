@@ -2,9 +2,8 @@
 
 namespace Macmotp\Money\Tests\Unit\Traits;
 
-use Macmotp\Exceptions\InvalidCurrencyCodeException;
+use Macmotp\Currencies\Support\CurrencyCode;
 use Macmotp\Money;
-use Macmotp\Support\CurrencyCode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -15,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class MoneyAggregatorTest extends TestCase
 {
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyAggregations()
     {
         $moneyOne = new Money(100, CurrencyCode::USD);
@@ -30,9 +26,6 @@ class MoneyAggregatorTest extends TestCase
         $this->assertEquals((new Money(900, CurrencyCode::USD)), Money::sum($moneyOne, $moneyTwo, $moneyThree));
     }
 
-    /**
-     * @throws InvalidCurrencyCodeException
-     */
     public function testMoneyAggregationsWithDifferentCurrencies()
     {
         $moneyOne = new Money(100, CurrencyCode::USD);

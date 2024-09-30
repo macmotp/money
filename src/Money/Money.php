@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Macmotp;
 
 use Illuminate\Support\Collection;
-use Macmotp\Exceptions\InvalidCurrencyCodeException;
-use Macmotp\Support\CurrencyCode;
-use Macmotp\Traits\MoneyAggregator;
-use Macmotp\Traits\MoneyCalculator;
-use Macmotp\Traits\MoneyComparator;
-use Macmotp\Traits\MoneyPrinter;
+use Macmotp\Currencies\Support\CurrencyCode;
+use Macmotp\Money\Traits\MoneyAggregator;
+use Macmotp\Money\Traits\MoneyCalculator;
+use Macmotp\Money\Traits\MoneyComparator;
+use Macmotp\Money\Traits\MoneyPrinter;
 
 /**
  * Class Money
@@ -37,7 +36,6 @@ class Money
      *
      * @param $amount
      * @param CurrencyCode|string $currency
-     * @throws InvalidCurrencyCodeException
      */
     public function __construct($amount, CurrencyCode|string $currency)
     {
@@ -52,7 +50,6 @@ class Money
      * @param CurrencyCode|string $currency
      *
      * @return Money
-     * @throws InvalidCurrencyCodeException
      */
     public static function make($amount, CurrencyCode|string $currency): self
     {
@@ -116,7 +113,6 @@ class Money
      * $clone = $money->clone(); // $clone = new Money(123456, 'USD');
      *
      * @return Money
-     * @throws InvalidCurrencyCodeException
      */
     public function clone(): self
     {
@@ -130,7 +126,6 @@ class Money
      * $zero = $money->zero(); // $zero = new Money(0, 'USD');
      *
      * @return Money
-     * @throws InvalidCurrencyCodeException
      */
     public function zero(): self
     {
@@ -141,7 +136,6 @@ class Money
      * Get Collection with All the Currencies
      *
      * @return Collection
-     * @throws InvalidCurrencyCodeException
      */
     public static function getAllCurrencies(): Collection
     {
